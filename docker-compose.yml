@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  web-statis:
+    image: ${DOCKERHUB_USERNAME}/uas-statis:latest
+    container_name: web-statis
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    networks:
+      - uas-network
+
+  web-dinamis:
+    image: ${DOCKERHUB_USERNAME}/uas-dinamis:latest
+    container_name: web-dinamis
+    ports:
+      - "3000:80"
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=${DB_PASSWORD:-rootpassword}
+      - DATABASE_NAME=uas_db
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+      - uas-network
+
+  db:
+    image: mariadb:10.11
+    container_name: uas-db
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD:-rootpassword}
+      - MARIADB_DATABASE=uas_db
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+    networks:
+      - uas-network
+
+networks:
+  uas-network:
+    driver: bridge
+
+volumes:
+  mariadb_data:

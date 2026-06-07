@@ -1,12 +1,14 @@
-name: Deploy Web Statis
-# Trigger deployment after fixing Docker secrets
+name: Deploy Web Dinamis
+
 on:
   push:
     branches:
       - main
     paths:
-      - 'web-statis/**'
-      - '.github/workflows/deploy-statis.yml'
+      - 'web-dinamis/**'
+      - 'docker-compose.yml'
+      - 'database/**'
+      - '.github/workflows/deploy-dinamis.yml'
 
 jobs:
   build-and-push:
@@ -26,9 +28,9 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./web-statis
+          context: ./web-dinamis
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/uas-dinamis:latest
 
   deploy:
     name: Deploy to AWS EC2
@@ -39,13 +41,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Copy docker-compose via SCP
+      - name: Copy docker-compose and database files via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: "docker-compose.yml"
+          source: "docker-compose.yml,database/init.sql"
           target: "/home/${{ secrets.AWS_USERNAME }}/uas-project"
 
       - name: Deploy via SSH
@@ -60,6 +62,6 @@ jobs:
           script: |
             cd /home/${{ secrets.AWS_USERNAME }}/uas-project
             export DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME
-            docker compose pull web-statis
-            docker compose up -d web-statis
-            echo "✅ Web Statis deployed successfully via Docker Compose"
+            docker compose pull web-dinamis db
+            docker compose up -d web-dinamis db
+            echo "✅ Web Dinamis and Database deployed successfully"
