@@ -18,6 +18,8 @@ class UserModel {
 
     public function verifyPassword($password, $hash) {
         return password_verify($password, $hash);
+    }
+
     public function findById($id) {
         $stmt = $this->conn->prepare("SELECT * FROM users WHERE id = :id");
         $stmt->bindParam(":id", $id);
