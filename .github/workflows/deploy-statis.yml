@@ -37,18 +37,6 @@ jobs:
     needs: build-and-push
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Copy docker-compose via SCP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.AWS_HOST }}
-          username: ${{ secrets.AWS_USERNAME }}
-          key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: "docker-compose.yml"
-          target: "/home/${{ secrets.AWS_USERNAME }}/uas-project"
-
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         env:
@@ -59,8 +47,14 @@ jobs:
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           envs: DOCKERHUB_USERNAME
           script: |
-            cd /home/${{ secrets.AWS_USERNAME }}/uas-project
-            export DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME
-            docker compose pull web-statis
-            docker compose up -d web-statis
-            echo "✅ Web Statis deployed successfully via Docker Compose"
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
+            docker stop web-statis || true
+            docker rm web-statis || true
+            docker network create uas-network || true
+            docker run -d \
+              --name web-statis \
+              -p 80:80 \
+              --network uas-network \
+              --restart unless-stopped \
+              ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
+            echo "✅ Web Statis deployed successfully"
