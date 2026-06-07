@@ -3,486 +3,430 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jibril Judex Facti Aliyudin — CV</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>Jibril Judex - Heavy Metal CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   :root {
-    --gold: #95a5a6;
-    --gold-light: #bdc3c7;
-    --gold-dark: #505c66;
-    --parchment: #16181a;
-    --parchment-dark: #0f1011;
-    --ink: #ecf0f1;
-    --ink-light: #aab7b8;
-    --crimson: #e74c3c;
-    --stone: #d0d3d4;
-    --stone-light: #7f8c8d;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background-color: #0b0c0d;
-    background-image:
-      radial-gradient(ellipse at 20% 20%, #1c1e20 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, #08090a 0%, transparent 60%);
-    min-height: 100vh;
-    font-family: 'Crimson Text', serif;
-    color: var(--ink);
-    padding: 2rem 1rem;
+    --bg-dark: #111;
+    --metal-base: #2a2d32;
+    --metal-light: #525962;
+    --chrome-1: #e0e5ec;
+    --chrome-2: #8a939e;
+    --accent: #e50914; /* Crimson Red for heavy metal vibe */
+    --accent-glow: rgba(229, 9, 20, 0.6);
+    --text-main: #f0f0f0;
+    --text-muted: #9ba4b5;
   }
 
-  .scroll-container {
-    max-width: 860px;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    /* Brushed metal/carbon fiber dark background */
+    background-image: 
+      radial-gradient(circle at 50% 0%, #222 0%, #0a0a0a 80%),
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+    color: var(--text-main);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  /* METALLIC CONTAINER */
+  .cv-container {
+    max-width: 900px;
     margin: 0 auto;
-    background: var(--parchment);
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(149,165,166,0.06) 28px, rgba(149,165,166,0.06) 29px);
-    border: 3px solid var(--gold-dark);
-    box-shadow:
-      0 0 0 6px #0b0c0d,
-      0 0 0 8px var(--gold-dark),
-      0 20px 60px rgba(0,0,0,0.8),
-      inset 0 0 40px rgba(189,195,199,0.05);
+    background: linear-gradient(135deg, #1c1e21, #2c3036);
+    border: 2px solid var(--metal-light);
+    border-radius: 4px;
     position: relative;
+    box-shadow: 
+      0 0 0 4px #000,
+      0 0 0 6px var(--metal-light),
+      0 20px 50px rgba(0,0,0,0.8),
+      inset 0 1px 1px rgba(255,255,255,0.1);
     overflow: hidden;
   }
 
-  .scroll-top, .scroll-bottom {
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
-    padding: 1.2rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-  .scroll-top::after, .scroll-bottom::before {
-    content: '';
+  /* RIVETS (Baut Besi) */
+  .rivet {
     position: absolute;
-    left: 0; right: 0;
-    height: 2px;
-    background: var(--gold-dark);
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #8a939e 30%, #2a2d32 90%);
+    border-radius: 50%;
+    box-shadow: inset 0 2px 2px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.8);
+    z-index: 10;
   }
-  .scroll-top::after { bottom: 0; }
-  .scroll-bottom::before { top: 0; }
-
-  .ornament {
-    font-size: 1.8rem;
-    color: var(--stone);
-    opacity: 0.7;
-    user-select: none;
-  }
-
-  .scroll-body { padding: 2.5rem 3rem; }
+  .rivet.tl { top: 10px; left: 10px; }
+  .rivet.tr { top: 10px; right: 10px; }
+  .rivet.bl { bottom: 10px; left: 10px; }
+  .rivet.br { bottom: 10px; right: 10px; }
 
   /* HEADER */
   .header {
+    padding: 3rem 2rem;
     text-align: center;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid var(--gold-dark);
-    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--bg-dark);
+    background: linear-gradient(to bottom, #2c3036, #1c1e21);
     position: relative;
   }
-  .header-divider-icon {
+  .header::after {
+    content: '';
     position: absolute;
-    bottom: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--parchment);
-    padding: 0 12px;
-    color: var(--gold-dark);
-    font-size: 1.4rem;
-    line-height: 1;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
   }
-  .crest {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1rem;
-    border: 4px solid var(--gold-dark);
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    box-shadow:
-      0 0 0 3px var(--gold),
-      0 0 0 6px var(--gold-dark),
-      0 8px 24px rgba(0,0,0,0.5);
-    overflow: hidden;
+
+  .profile-pic-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
     position: relative;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    /* Hexagon clip-path */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(135deg, var(--chrome-1), var(--chrome-2));
+    padding: 4px; /* Border thickness */
   }
-  .crest img {
+
+  .profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: block;
+    background-color: var(--metal-base);
   }
-  .crest-fallback {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cinzel', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--stone);
-  }
+
   .name {
-    font-family: 'Cinzel', serif;
-    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--stone);
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-    margin-bottom: 0.4rem;
-  }
-  .title-banner {
-    display: inline-block;
-    background: var(--stone);
-    color: var(--gold-light);
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    padding: 4px 20px;
-    margin: 0.5rem 0 1rem;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Chrome text effect */
+    background: linear-gradient(to bottom, #fff 0%, #b3b9c5 40%, #525962 50%, #b3b9c5 60%, #fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+    margin-bottom: 0.5rem;
   }
-  .contact-row {
+
+  .title {
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  .contact-info {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     flex-wrap: wrap;
-    font-size: 0.95rem;
-    color: var(--ink-light);
+    font-size: 1.1rem;
   }
-  .contact-row span { display: flex; align-items: center; gap: 5px; }
-  .contact-row .ti { font-size: 1rem; color: var(--gold-dark); flex-shrink: 0; }
-  .contact-row a { color: var(--crimson); text-decoration: none; font-style: italic; }
-  .contact-row a:hover { text-decoration: underline; }
-  .skill-group-title .ti { font-size: 0.85rem; vertical-align: -1px; margin-right: 4px; }
-
-  /* SECTIONS */
-  .section { margin-bottom: 2rem; }
-  .section-title {
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--stone);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--gold);
-    margin-bottom: 1rem;
+  .contact-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    color: var(--text-muted);
   }
-  .section-title::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background: var(--gold-dark);
-    transform: rotate(45deg);
-    flex-shrink: 0;
+  .contact-item i {
+    color: var(--chrome-1);
+    font-size: 1.2rem;
   }
-
-  /* ABOUT */
-  .about-text {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--ink-light);
-    font-style: italic;
-    padding: 1rem 1.5rem;
-    border-left: 3px solid var(--gold);
-    background: rgba(149,165,166,0.06);
+  .contact-item a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .contact-item a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-glow);
   }
 
-  /* EDUCATION & EXPERIENCE */
-  .entry { margin-bottom: 1.4rem; position: relative; padding-left: 1.2rem; }
-  .entry::before {
-    content: '◆';
+  /* CONTENT GRID */
+  .content {
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* SECTION PLATES */
+  .section {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--metal-light);
+    padding: 2rem;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--chrome-1);
     position: absolute;
-    left: 0;
-    top: 3px;
-    font-size: 0.5rem;
-    color: var(--gold-dark);
+    top: -16px;
+    left: 20px;
+    background: var(--bg-dark);
+    padding: 0 15px;
+    border: 1px solid var(--metal-light);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
-  .entry-title {
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--stone);
+  .section-title i {
+    color: var(--accent);
   }
-  .entry-date {
-    font-size: 0.85rem;
-    color: var(--gold-dark);
-    font-style: italic;
-    white-space: nowrap;
-  }
-  .entry-sub {
-    font-size: 0.95rem;
-    color: var(--crimson);
-    font-weight: 600;
-    margin: 2px 0 4px;
-  }
-  .entry-desc {
-    font-size: 0.95rem;
-    color: var(--ink-light);
+
+  /* TEXT BLOCKS */
+  p.about {
+    font-size: 1.1rem;
     line-height: 1.6;
+    color: var(--text-muted);
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
   }
-  .entry-desc ul { padding-left: 1.2rem; }
-  .entry-desc li { margin-bottom: 3px; }
+
+  /* TIMELINE / LISTS */
+  .timeline-item {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 20px;
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+    border-radius: 50%;
+  }
+  .item-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--chrome-1);
+  }
+  .item-date {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .item-desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
 
   /* SKILLS */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
   }
-  .skill-group { }
-  .skill-group-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--gold-dark);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
+  .skill-category {
+    font-family: 'Oswald', sans-serif;
+    color: var(--chrome-1);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--metal-light);
+    padding-bottom: 5px;
   }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .skill-tag {
-    font-size: 0.85rem;
-    background: var(--stone);
-    color: var(--gold-light);
-    padding: 3px 10px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
-
-  /* PROJECTS */
-  .project { margin-bottom: 1.2rem; padding: 1rem 1.2rem; border: 1px solid var(--parchment-dark); background: rgba(201,168,76,0.04); position: relative; }
-  .project::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--gold-dark), var(--gold));
-  }
-  .project-title {
-    font-family: 'Cinzel', serif;
+  .tag {
+    background: linear-gradient(to bottom, #3a3f47, #22252a);
+    border: 1px solid var(--metal-light);
+    padding: 4px 12px;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--stone);
-    margin-bottom: 4px;
+    color: var(--text-main);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
   }
-  .project-tech {
-    font-size: 0.8rem;
-    color: var(--gold-dark);
-    font-style: italic;
-    margin-bottom: 6px;
-  }
-  .project-desc {
-    font-size: 0.9rem;
-    color: var(--ink-light);
-    line-height: 1.6;
-  }
-
-  /* DIVIDER */
-  .divider {
-    text-align: center;
-    color: var(--gold-dark);
-    font-size: 1rem;
-    letter-spacing: 0.5em;
-    margin: 1.5rem 0;
-    opacity: 0.6;
+  .tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+    transform: translateY(-2px);
   }
 
   /* FOOTER */
-  .footer-text {
+  .footer {
     text-align: center;
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    color: var(--gold-dark);
-    letter-spacing: 0.1em;
-    opacity: 0.7;
-    padding: 1rem;
+    padding: 1.5rem;
+    font-family: 'Oswald', sans-serif;
+    color: var(--metal-light);
+    letter-spacing: 2px;
+    background: #000;
+    border-top: 1px solid var(--metal-light);
   }
 
-  @media (max-width: 600px) {
-    .scroll-body { padding: 1.5rem 1.2rem; }
-    .name { font-size: 1.4rem; }
-    .skills-grid { grid-template-columns: 1fr 1fr; }
-    .entry-header { flex-direction: column; }
+  @media (max-width: 768px) {
+    .name { font-size: 2.2rem; }
+    .contact-info { flex-direction: column; align-items: center; gap: 1rem; }
+    .content { padding: 1.5rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="scroll-container">
+<div class="cv-container">
+  <!-- Rivets -->
+  <div class="rivet tl"></div>
+  <div class="rivet tr"></div>
+  <div class="rivet bl"></div>
+  <div class="rivet br"></div>
 
-  <div class="scroll-top">
-    <span class="ornament">⚜</span>
-    <span style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.2em; color:#1a1208; opacity:0.7;">CURRICULUM VITAE</span>
-    <span class="ornament">⚜</span>
-  </div>
-
-  <div class="scroll-body">
-
-    <!-- HEADER -->
-    <div class="header">
-      <div class="crest">
-        <img src="assets/profile.jpg" alt="Foto Jibril Judex Facti Aliyudin"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="crest-fallback" style="display:none;">JJ</div>
+  <header class="header">
+    <div class="profile-pic-container">
+      <img src="assets/profile.jpg" alt="Foto Jibril" class="profile-pic" onerror="this.src='https://via.placeholder.com/150/2a2d32/e0e5ec?text=J.J'">
+    </div>
+    <h1 class="name">Jibril Judex Facti Aliyudin</h1>
+    <div class="title">IT System Administrator & Cloud Engineer</div>
+    
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="ti ti-map-pin"></i> Cirebon, Jawa Barat
       </div>
-      <h1 class="name">Jibril Judex Facti Aliyudin</h1>
-      <div class="title-banner">Ksatria Teknologi Informasi</div>
-      <span class="header-divider-icon"><i class="ti ti-sword" style="color:var(--gold-dark); font-size:1.3rem;"></i></span>
-      <div class="contact-row">
-        <span><i class="ti ti-map-pin" aria-hidden="true"></i> Cirebon, Jawa Barat</span>
-        <span><i class="ti ti-mail" aria-hidden="true"></i> <a href="mailto:jibriljudex@email.com">jibriljudex@email.com</a></span>
-        <span><i class="ti ti-brand-github" aria-hidden="true"></i> <a href="https://github.com/jibriljudexx7" target="_blank">github.com/jibriljudexx7</a></span>
+      <div class="contact-item">
+        <i class="ti ti-mail"></i> <a href="mailto:jibriljudex@email.com">jibriljudex@email.com</a>
+      </div>
+      <div class="contact-item">
+        <i class="ti ti-brand-github"></i> <a href="https://github.com/jibriljudexx7" target="_blank">jibriljudexx7</a>
       </div>
     </div>
+  </header>
 
-    <!-- ABOUT -->
+  <div class="content">
+
+    <!-- SUMMARY SECTION -->
     <div class="section">
-      <h2 class="section-title">Tentang Sang Ksatria</h2>
-      <p class="about-text">
-        Seorang pejuang di ranah teknologi informasi yang tengah menempa ilmu di bidang administrasi server dan komputasi awan. Bersenjatakan kode dan berperisai logika, saya berdedikasi untuk membangun sistem yang kokoh, otomatis, dan dapat diandalkan — layaknya benteng yang tak tertaklukkan.
+      <div class="section-title"><i class="ti ti-user-scan"></i> System Profile</div>
+      <p class="about">
+        SYSTEM BOOT SUCCESSFUL... <br><br>
+        Seorang antusias di bidang Administrasi Server dan Cloud Computing. Terbiasa mengoperasikan infrastruktur Linux, melakukan otomatisasi deployment dengan CI/CD, dan merancang arsitektur berbasis container. Selalu siap mengeksekusi misi teknis dengan presisi dan performa tinggi layaknya mesin industri.
       </p>
     </div>
 
-    <!-- EDUCATION -->
+    <!-- EXPERIENCE SECTION -->
     <div class="section">
-      <h2 class="section-title">Perguruan & Tempa Ilmu</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">UIN Siber Syekh Nurjati Cirebon</span>
-          <span class="entry-date">2022 — Sekarang</span>
+      <div class="section-title"><i class="ti ti-briefcase"></i> Operational History</div>
+      
+      <div class="timeline-item">
+        <div class="item-title">Asisten Laboratorium Komputer</div>
+        <div class="item-date">2023 // PRESENT // UIN SIBER SYEKH NURJATI</div>
+        <div class="item-desc">
+          Mengelola dan memantau infrastruktur jaringan laboratorium. Memberikan asistensi teknis kepada praktikan dalam materi Jaringan Komputer, Pemrograman Web, dan Administrasi Sistem.
         </div>
-        <div class="entry-sub">S1 Informatika</div>
-        <div class="entry-desc">Mendalami ilmu rekayasa perangkat lunak, jaringan komputer, dan administrasi sistem. Aktif dalam proyek berbasis cloud computing dan pengembangan aplikasi web.</div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">SMK Negeri — Jurusan RPL</span>
-          <span class="entry-date">2019 — 2022</span>
-        </div>
-        <div class="entry-sub">Rekayasa Perangkat Lunak AWS</div>
-        <div class="entry-desc">Membangun fondasi pemrograman dan pengembangan web yang menjadi bekal tempur di dunia teknologi.</div>
       </div>
     </div>
 
-    <div class="divider">
-      <i class="ti ti-diamond" aria-hidden="true"></i>
-      &nbsp;&nbsp;
-      <i class="ti ti-diamond" aria-hidden="true"></i>
-      &nbsp;&nbsp;
-      <i class="ti ti-diamond" aria-hidden="true"></i>
+    <!-- PROJECTS SECTION -->
+    <div class="section">
+      <div class="section-title"><i class="ti ti-cpu"></i> Executed Projects</div>
+      
+      <div class="timeline-item">
+        <div class="item-title">CI/CD AWS Deployment Pipeline</div>
+        <div class="item-date">PROJECT: CLOUD COMPUTING II</div>
+        <div class="item-desc">
+          Merancang pipeline otomatisasi dengan GitHub Actions. Menerapkan Zero-Touch Deployment untuk aplikasi multi-container (PHP, Nginx, MariaDB) langsung ke instance AWS EC2 menggunakan Docker Compose.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-title">Dynamic Web Guestbook</div>
+        <div class="item-date">PROJECT: WEB DEVELOPMENT</div>
+        <div class="item-desc">
+          Membangun aplikasi backend PHP murni yang terintegrasi dengan database MariaDB. Dikemas menggunakan Dockerfile terpisah dan berjalan pada arsitektur terisolasi.
+        </div>
+      </div>
     </div>
 
-    <!-- SKILLS -->
+    <!-- SKILLS SECTION -->
     <div class="section">
-      <h2 class="section-title">Senjata & Keahlianku</h2>
+      <div class="section-title"><i class="ti ti-tools"></i> Arsenal & Tech Stack</div>
+      
       <div class="skills-grid">
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-code" aria-hidden="true"></i> Bahasa Pemrograman</div>
+        <div>
+          <div class="skill-category">INFRASTRUCTURE & CLOUD</div>
           <div class="skill-tags">
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">HTML/CSS</span>
+            <span class="tag">AWS EC2</span>
+            <span class="tag">Linux/Ubuntu</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Nginx</span>
           </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-cloud" aria-hidden="true"></i> Server & Cloud</div>
+        
+        <div>
+          <div class="skill-category">DEVOPS & AUTOMATION</div>
           <div class="skill-tags">
-            <span class="skill-tag">AWS EC2</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Nginx</span>
-            <span class="skill-tag">Linux</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Docker Compose</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Bash</span>
           </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-settings-automation" aria-hidden="true"></i> DevOps & CI/CD</div>
+
+        <div>
+          <div class="skill-category">DEVELOPMENT</div>
           <div class="skill-tags">
-            <span class="skill-tag">GitHub Actions</span>
-            <span class="skill-tag">Docker Compose</span>
-            <span class="skill-tag">SSH/SCP</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title"><i class="ti ti-database" aria-hidden="true"></i> Database</div>
-          <div class="skill-tags">
-            <span class="skill-tag">MariaDB</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PostgreSQL</span>
+            <span class="tag">PHP 8</span>
+            <span class="tag">MariaDB/SQL</span>
+            <span class="tag">HTML5/CSS3</span>
+            <span class="tag">JavaScript</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PROJECTS -->
+    <!-- EDUCATION SECTION -->
     <div class="section">
-      <h2 class="section-title">Misi & Pertempuran</h2>
-
-      <div class="project">
-        <div class="project-title"><i class="ti ti-git-merge" style="color:var(--gold-dark); margin-right:6px;" aria-hidden="true"></i>Sistem Deployment CI/CD — Cloud Computing II</div>
-        <div class="project-tech">GitHub Actions · Docker · AWS EC2 · Nginx · MariaDB</div>
-        <div class="project-desc">Merancang pipeline CI/CD otomatis dengan GitHub Actions untuk mendeploy multi-container application ke AWS EC2. Mengimplementasikan Zero-Touch Deployment sehingga perubahan kode langsung terpublikasi ke server production tanpa intervensi manual.</div>
+      <div class="section-title"><i class="ti ti-school"></i> Knowledge Base</div>
+      
+      <div class="timeline-item">
+        <div class="item-title">S1 Informatika</div>
+        <div class="item-date">2022 // PRESENT // UIN SIBER SYEKH NURJATI</div>
+        <div class="item-desc">Mendalami rekayasa perangkat lunak, komputasi awan, dan sistem terdistribusi.</div>
       </div>
 
-      <div class="project">
-        <div class="project-title"><i class="ti ti-server" style="color:var(--gold-dark); margin-right:6px;" aria-hidden="true"></i>Web Administrasi Server</div>
-        <div class="project-tech">PHP · MariaDB · Docker Compose · Nginx</div>
-        <div class="project-desc">Membangun aplikasi web dinamis berbasis PHP dengan manajemen database MariaDB, dikemas dalam container Docker dan diorkestrasi menggunakan Docker Compose dengan reverse proxy Nginx.</div>
-      </div>
-
-      <div class="project">
-        <div class="project-title"><i class="ti ti-id-badge" style="color:var(--gold-dark); margin-right:6px;" aria-hidden="true"></i>Portfolio & CV Digital</div>
-        <div class="project-tech">HTML · CSS · Docker · GitHub Actions</div>
-        <div class="project-desc">Situs CV statis bertema ksatria yang di-containerize menggunakan Nginx Docker dan di-deploy secara otomatis melalui pipeline CI/CD ke AWS EC2.</div>
+      <div class="timeline-item">
+        <div class="item-title">Rekayasa Perangkat Lunak</div>
+        <div class="item-date">2019 // 2022 // SMK NEGERI</div>
+        <div class="item-desc">Fokus pada algoritma dasar, struktur data, dan pengembangan aplikasi berbasis web.</div>
       </div>
     </div>
 
-    <!-- EXPERIENCE -->
-    <div class="section">
-      <h2 class="section-title">Pengalaman Tempur</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Asisten Laboratorium Komputer</span>
-          <span class="entry-date">2023 — Sekarang</span>
-        </div>
-        <div class="entry-sub">UIN Siber Syekh Nurjati Cirebon</div>
-        <div class="entry-desc">
-          <ul>
-            <li>Membantu mahasiswa dalam praktikum jaringan komputer dan pemrograman web</li>
-            <li>Mengelola dan memelihara infrastruktur laboratorium komputer</li>
-            <li>Menyusun modul praktikum berbasis project-based learning</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-text">
-      <i class="ti ti-sword" style="font-size:1rem; vertical-align:-2px;" aria-hidden="true"></i>
-      &nbsp; Semper Fidelis in Codice &nbsp;
-      <i class="ti ti-sword" style="font-size:1rem; vertical-align:-2px;" aria-hidden="true"></i>
-    </div>
-
-  </div><!-- end scroll-body -->
-
-  <div class="scroll-bottom">
-    <span class="ornament">⚜</span>
-    <span style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.15em; color:#1a1208; opacity:0.6;">JIBRIL JUDEX FACTI ALIYUDIN — 2025</span>
-    <span class="ornament">⚜</span>
   </div>
 
+  <footer class="footer">
+    <i class="ti ti-bolt"></i> JIBRIL JUDEX // SYSTEM STATUS: ONLINE // 2025
+  </footer>
 </div>
 
 </body>
