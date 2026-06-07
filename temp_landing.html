@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes of Eternity | Official Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        :root {
+            --dark: #09090b;
+            --darker: #000000;
+            --accent: #ef4444; /* Blood Red */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%), url('assets/hero.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--darker) 0%, transparent 100%);
+        }
+
+        .band-logo {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+            margin-bottom: 1rem;
+            z-index: 10;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            z-index: 10;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Section Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
+            filter: grayscale(80%) contrast(120%);
+            transition: filter 0.5s;
+        }
+
+        .about-img:hover {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Album Section */
+        .album-section {
+            background-color: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .album-cover {
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tracklist {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .tracklist li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+        }
+
+        .tracklist li span.track-name {
+            color: #fff;
+        }
+
+        /* Portal Banner */
+        .portal-banner {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(45deg, var(--darker) 0%, #1a0505 100%);
+            border-top: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--darker);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .album-grid {
+                grid-template-columns: 1fr;
+            }
+            .band-logo {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1 class="band-logo">Echoes of Eternity</h1>
+        <p class="hero-subtitle">Heavy Metal from the Abyss</p>
+        <a href="#music" class="btn">Listen Now</a>
+    </header>
+
+    <!-- About Section -->
+    <section class="container">
+        <div class="about-grid">
+            <div>
+                <img src="assets/band.png" alt="Echoes of Eternity Band Members" class="about-img">
+            </div>
+            <div class="about-text">
+                <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                    <h2>The Genesis</h2>
+                </div>
+                <p>Formed in the depths of the underground metal scene, Echoes of Eternity combines blistering guitar riffs, thunderous blast beats, and haunting symphonic elements to create a soundscape that is both brutal and beautiful.</p>
+                <p>With three critically acclaimed studio albums and a reputation for explosive, high-energy live performances, we have established ourselves as one of the premier extreme metal acts of this decade. Join our legion.</p>
+                <a href="/app/" class="btn" style="margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">View Tour Dates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Album Section -->
+    <section id="music" class="album-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Release</h2>
+                <p style="color: var(--text-muted);">Symphony of Destruction (2026)</p>
+            </div>
+            <div class="album-grid">
+                <div>
+                    <img src="assets/album.png" alt="Symphony of Destruction Album Cover" class="album-cover">
+                </div>
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Tracklist</h3>
+                    <ul class="tracklist">
+                        <li><span>01.</span> <span class="track-name">Prelude to Chaos</span> <span>1:45</span></li>
+                        <li><span>02.</span> <span class="track-name">Symphony of Destruction</span> <span>5:12</span></li>
+                        <li><span>03.</span> <span class="track-name">Blood and Gears</span> <span>4:38</span></li>
+                        <li><span>04.</span> <span class="track-name">The Crimson Rune</span> <span>6:05</span></li>
+                        <li><span>05.</span> <span class="track-name">Echoes in the Abyss</span> <span>7:20</span></li>
+                        <li><span>06.</span> <span class="track-name">Final Stand</span> <span>4:55</span></li>
+                    </ul>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                        <a href="#" class="btn" style="background: var(--accent); border-color: var(--accent); padding: 0.8rem 1.5rem;"><i class="ti ti-brand-spotify"></i> Stream</a>
+                        <a href="#" class="btn" style="padding: 0.8rem 1.5rem;"><i class="ti ti-shopping-cart"></i> Buy Vinyl</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Portal Link -->
+    <section class="portal-banner">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Enter The Inner Circle</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Get the latest transmissions, exclusive news, and secure your tickets for our upcoming world tour.</p>
+        <a href="/app/" class="btn" style="background: var(--accent); border-color: var(--accent); font-size: 1.1rem; padding: 1.2rem 3rem;">
+            <i class="ti ti-news"></i> Open News Portal
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Echoes of Eternity. All Rights Reserved. Heavy Metal Worldwide.</p>
+    </footer>
+
+</body>
+</html>
