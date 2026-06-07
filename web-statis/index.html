@@ -2,26 +2,20 @@
 <html lang="id">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jibril Judex – Industrial Dark Metal CV</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jibril Judex – Cloud Engineer</title>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Oswald:wght@400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
   <style>
     :root {
-      --bg-dark: #0a0a0a;
-      --metal-base: #2a2d32;
-      --metal-light: #525962;
-      --chrome-1: #e0e5ec;
-      --chrome-2: #8a939e;
+      --bg: #0b0d10;
+      --bg-soft: #12151b;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
       --accent: #e50914;
-      --accent-glow: rgba(229, 9, 20, .7);
-      --text-main: #f0f0f0;
-      --text-muted: #9ba4b5;
     }
 
     * {
@@ -30,400 +24,246 @@
       box-sizing: border-box
     }
 
+    html {
+      scroll-behavior: smooth
+    }
+
     body {
-      font-family: 'Rajdhani', sans-serif;
-      color: var(--text-main);
-      min-height: 100vh;
-      padding: 2rem;
+      font-family: 'Inter', sans-serif;
       background:
-        repeating-linear-gradient(90deg,
-          rgba(255, 255, 255, .02),
-          rgba(255, 255, 255, .02) 1px,
-          transparent 1px,
-          transparent 4px),
-        radial-gradient(circle at top, #1c1e21, #050505 70%);
+        radial-gradient(circle at top, #1a1f2b, #0b0d10 70%);
+      color: var(--text);
     }
 
-    /* ================= CONTAINER ================= */
-    .cv-container {
-      max-width: 900px;
-      margin: auto;
-      background: linear-gradient(135deg, #1c1e21, #2c3036);
-      border: 2px solid var(--metal-light);
-      position: relative;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 4px #000,
-        0 0 0 6px var(--metal-light),
-        0 25px 60px rgba(0, 0, 0, .9);
-    }
-
-    /* scan line */
-    .scan-line {
-      position: absolute;
-      top: -120%;
-      left: 0;
-      width: 100%;
-      height: 140px;
-      background: linear-gradient(to bottom, transparent, rgba(229, 9, 20, .18), transparent);
-      animation: scanMove 6s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes scanMove {
-      from {
-        top: -120%
-      }
-
-      to {
-        top: 120%
-      }
-    }
-
-    /* rivets */
-    .rivet {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: radial-gradient(circle, #9aa3ad 30%, #2a2d32 90%);
-      border-radius: 50%;
-      box-shadow: inset 0 2px 2px rgba(255, 255, 255, .4), 0 2px 4px rgba(0, 0, 0, .8);
-    }
-
-    .rivet.tl {
-      top: 10px;
-      left: 10px
-    }
-
-    .rivet.tr {
-      top: 10px;
-      right: 10px
-    }
-
-    .rivet.bl {
-      bottom: 10px;
-      left: 10px
-    }
-
-    .rivet.br {
-      bottom: 10px;
-      right: 10px
-    }
-
-    /* ================= HEADER ================= */
-    .header {
-      padding: 3rem 2rem;
+    /* ================= HERO ================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      background: linear-gradient(to bottom, #2c3036, #1c1e21);
-      border-bottom: 4px solid #000;
-      position: relative;
+      padding: 3rem 1.5rem;
     }
 
-    .profile-pic-container {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 1.5rem;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-      background: linear-gradient(135deg, var(--chrome-1), var(--chrome-2));
-      padding: 4px;
-      animation: pulseGlow 4s infinite;
+    .hero-inner {
+      max-width: 900px;
     }
 
-    @keyframes pulseGlow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 10px rgba(229, 9, 20, .3)
-      }
-
-      50% {
-        box-shadow: 0 0 25px rgba(229, 9, 20, .85)
-      }
+    .avatar {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 2rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, .15);
+      box-shadow: 0 0 40px rgba(229, 9, 20, .35);
     }
 
-    .profile-pic {
+    .avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      clip-path: inherit;
-      background: #111;
     }
 
-    .name {
-      font-family: 'Oswald', sans-serif;
-      font-size: 3rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      background: linear-gradient(#fff, #b3b9c5 45%, #525962 55%, #fff);
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #fff, #9ca3af);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: metalFlicker 8s infinite;
     }
 
-    @keyframes metalFlicker {
-
-      0%,
-      95%,
-      100% {
-        opacity: 1
-      }
-
-      96% {
-        opacity: .75
-      }
-
-      97% {
-        opacity: 1
-      }
-    }
-
-    .title {
-      margin-top: .5rem;
+    .hero p {
+      margin-top: 1rem;
       font-size: 1.2rem;
-      letter-spacing: 4px;
+      color: var(--muted);
+    }
+
+    .hero .role {
+      margin-top: .8rem;
       color: var(--accent);
-      text-shadow: 0 0 12px var(--accent-glow);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: .9rem;
     }
 
     /* contact */
-    .contact-info {
+    .contact {
+      margin-top: 2rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      font-size: .95rem;
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-muted);
-    }
-
-    .contact-item a {
-      color: inherit;
+    .contact a {
+      color: var(--muted);
       text-decoration: none;
     }
 
-    .contact-item a:hover {
-      color: var(--accent);
-      text-shadow: 0 0 8px var(--accent-glow);
+    .contact a:hover {
+      color: var(--accent)
     }
 
-    /* ================= CONTENT ================= */
-    .content {
-      padding: 2.5rem;
-      display: grid;
-      gap: 2.5rem;
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 6rem 1.5rem;
     }
 
-    .section {
-      background: rgba(0, 0, 0, .25);
-      border: 1px solid var(--metal-light);
-      padding: 2rem;
-      position: relative;
-      transition: .4s ease;
-    }
-
-    .section:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: inset 0 0 30px rgba(229, 9, 20, .18), 0 0 20px rgba(229, 9, 20, .35);
+    .container {
+      max-width: 1000px;
+      margin: auto;
     }
 
     .section-title {
-      position: absolute;
-      top: -16px;
-      left: 20px;
-      background: #0a0a0a;
-      padding: 0 15px;
-      border: 1px solid var(--metal-light);
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 2px;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .section-title i {
-      color: var(--accent)
-    }
-
-    .about {
-      border-left: 4px solid var(--accent);
-      padding-left: 15px;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-    .timeline-item {
-      padding-left: 20px;
+      font-size: 2rem;
       margin-bottom: 1.5rem;
-      position: relative;
     }
 
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 6px;
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent-glow);
-      border-radius: 50%;
+    .section-title span {
+      color: var(--accent);
     }
 
-    .item-title {
-      font-weight: 700;
-      color: var(--chrome-1)
+    /* about */
+    .about {
+      max-width: 700px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
-    .item-date {
-      font-size: .9rem;
-      color: var(--accent)
+    /* timeline */
+    .timeline {
+      margin-top: 3rem;
     }
 
-    .item-desc {
-      color: var(--text-muted);
-      margin-top: 4px
+    .item {
+      margin-bottom: 2rem;
     }
 
-    .skills-grid {
+    .item h3 {
+      font-size: 1.2rem;
+    }
+
+    .item small {
+      color: var(--accent);
+    }
+
+    .item p {
+      color: var(--muted);
+      margin-top: .4rem;
+    }
+
+    /* skills */
+    .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .skill-category {
-      font-family: 'Oswald', sans-serif;
-      border-bottom: 1px solid var(--metal-light);
-      margin-bottom: 8px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin: 4px;
-      padding: 4px 12px;
-      background: linear-gradient(#3a3f47, #22252a);
-      border: 1px solid var(--metal-light);
-      transition: .3s;
-    }
-
-    .tag:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    /* ================= FOOTER ================= */
-    .footer {
-      text-align: center;
+    .skill-box {
+      background: linear-gradient(180deg, var(--bg-soft), transparent);
       padding: 1.5rem;
-      background: #000;
-      border-top: 1px solid var(--metal-light);
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 2px;
-      color: var(--metal-light);
+      border-radius: 12px;
     }
 
-    @media(max-width:768px) {
-      .name {
-        font-size: 2.2rem
-      }
+    .skill-box h4 {
+      margin-bottom: .8rem;
+    }
 
-      .content {
-        padding: 1.5rem
-      }
+    .skill-box span {
+      display: inline-block;
+      margin: 4px 6px 0 0;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: .85rem;
     }
   </style>
 </head>
 
 <body>
-  <div class="cv-container">
-    <div class="scan-line"></div>
 
-    <div class="rivet tl"></div>
-    <div class="rivet tr"></div>
-    <div class="rivet bl"></div>
-    <div class="rivet br"></div>
-
-    <header class="header">
-      <div class="profile-pic-container">
-        <img src="assets/profile.jpg" class="profile-pic"
-          onerror="this.src='https://via.placeholder.com/150/2a2d32/e0e5ec?text=J.J'">
-      </div>
-      <h1 class="name">Jibril Judex Facti Aliyudin</h1>
-      <div class="title">IT System Administrator & Cloud Engineer</div>
-
-      <div class="contact-info">
-        <div class="contact-item"><i class="ti ti-map-pin"></i>Cirebon, Jawa Barat</div>
-        <div class="contact-item"><i class="ti ti-mail"></i>
-          <a href="mailto:jibriljudex@email.com">jibriljudex@email.com</a>
-        </div>
-        <div class="contact-item"><i class="ti ti-brand-github"></i>
-          <a href="https://github.com/jibriljudexx7" target="_blank">jibriljudexx7</a>
-        </div>
-      </div>
-    </header>
-
-    <div class="content">
-
-      <div class="section">
-        <div class="section-title"><i class="ti ti-user-scan"></i>SYSTEM PROFILE</div>
-        <p class="about">
-          SYSTEM BOOT SUCCESSFUL…<br><br>
-          Administrator sistem & cloud engineer dengan fokus Linux, Docker, CI/CD, dan AWS EC2.
-          Terbiasa membangun pipeline otomatis dan infrastruktur stabil layaknya mesin industri.
-        </p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="avatar">
+        <img src="assets/profile.jpg" onerror="this.src='https://via.placeholder.com/140/111827/ffffff?text=JJ'">
       </div>
 
-      <div class="section">
-        <div class="section-title"><i class="ti ti-briefcase"></i>OPERATIONAL HISTORY</div>
-        <div class="timeline-item">
-          <div class="item-title">Asisten Laboratorium Komputer</div>
-          <div class="item-date">2023 – PRESENT</div>
-          <div class="item-desc">
-            Mengelola jaringan lab, server Linux, serta asistensi praktikum jaringan & web.
-          </div>
-        </div>
-      </div>
+      <h1><span>Jibril Judex Facti Aliyudin</span></h1>
+      <div class="role">IT System Administrator & Cloud Engineer</div>
 
-      <div class="section">
-        <div class="section-title"><i class="ti ti-cpu"></i>EXECUTED PROJECTS</div>
-        <div class="timeline-item">
-          <div class="item-title">CI/CD AWS Deployment Pipeline</div>
-          <div class="item-desc">
-            Zero-touch deployment multi-container ke AWS EC2 via GitHub Actions & Docker Compose.
-          </div>
-        </div>
-      </div>
+      <p>Building reliable infrastructure, automated deployments, and scalable cloud systems.</p>
 
-      <div class="section">
-        <div class="section-title"><i class="ti ti-tools"></i>ARSENAL & TECH STACK</div>
-        <div class="skills-grid">
-          <div>
-            <div class="skill-category">CLOUD</div>
-            <span class="tag">AWS EC2</span>
-            <span class="tag">Linux</span>
-            <span class="tag">Docker</span>
-          </div>
-          <div>
-            <div class="skill-category">DEVOPS</div>
-            <span class="tag">CI/CD</span>
-            <span class="tag">GitHub Actions</span>
-            <span class="tag">Nginx</span>
-          </div>
-        </div>
+      <div class="contact">
+        <span><i class="ti ti-map-pin"></i> Cirebon</span>
+        <a href="mailto:jibriljudex@email.com"><i class="ti ti-mail"></i> Email</a>
+        <a href="https://github.com/jibriljudexx7" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
       </div>
-
     </div>
+  </section>
 
-    <footer class="footer">
-      JIBRIL JUDEX // SYSTEM STATUS: ONLINE
-    </footer>
-  </div>
+  <!-- ABOUT -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span>#</span> About</h2>
+      <p class="about">
+        Administrator sistem dan cloud engineer dengan fokus Linux, Docker, CI/CD, dan AWS EC2.
+        Terbiasa membangun deployment otomatis dan menjaga stabilitas sistem produksi.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span>#</span> Experience</h2>
+
+      <div class="timeline">
+        <div class="item">
+          <h3>Asisten Laboratorium Komputer</h3>
+          <small>2023 – Present</small>
+          <p>Mengelola server lab, jaringan, dan asistensi praktikum jaringan & web.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span>#</span> Skills</h2>
+
+      <div class="skills">
+        <div class="skill-box">
+          <h4>Cloud & Infra</h4>
+          <span>AWS EC2</span><span>Linux</span><span>Docker</span><span>Nginx</span>
+        </div>
+        <div class="skill-box">
+          <h4>DevOps</h4>
+          <span>CI/CD</span><span>GitHub Actions</span><span>Docker Compose</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Jibril Judex — Built & Deployed on AWS EC2
+  </footer>
+
 </body>
 
 </html>
