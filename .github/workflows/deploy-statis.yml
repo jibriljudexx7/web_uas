@@ -28,7 +28,7 @@ jobs:
         with:
           context: ./web-statis
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/uas_statis:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
 
   deploy:
     name: Deploy to AWS EC2
@@ -43,12 +43,14 @@ jobs:
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/uas_statis:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
             docker stop web-statis || true
             docker rm web-statis || true
+            docker network create uas-network || true
             docker run -d \
               --name web-statis \
+              -p 80:80 \
               --network uas-network \
               --restart unless-stopped \
-              ${{ secrets.DOCKERHUB_USERNAME }}/uas_statis:latest
+              ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
             echo "✅ Web Statis deployed successfully"
