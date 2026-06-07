@@ -16,7 +16,6 @@ class ScheduleController {
         $news = $newsModel->getAll(); // Fans can also see the gallery of images
 
         $pageTitle = 'Tour Schedule | Echoes of Eternity';
-        $contentView = __DIR__ . '/../views/schedule.php';
-        require_once __DIR__ . '/../views/layout.php';
+        require_once __DIR__ . '/../views/schedule.php';
     }
 }

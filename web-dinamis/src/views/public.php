@@ -43,5 +43,5 @@
 
 <?php 
 $content = ob_get_clean(); 
-// PublicController already requires layout.php, so we don't need to require it here!
+require_once __DIR__ . '/layout.php';
 ?>

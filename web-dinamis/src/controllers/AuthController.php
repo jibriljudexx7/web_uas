@@ -39,8 +39,7 @@ class AuthController {
             }
         }
 
-        $contentView = __DIR__ . '/../views/login.php';
-        require_once __DIR__ . '/../views/layout.php';
+        require_once __DIR__ . '/../views/login.php';
     }
 
     public function register() {
@@ -69,8 +68,7 @@ class AuthController {
             }
         }
 
-        $contentView = __DIR__ . '/../views/register.php';
-        require_once __DIR__ . '/../views/layout.php';
+        require_once __DIR__ . '/../views/register.php';
     }
 
     public function logout() {
