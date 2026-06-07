@@ -1,0 +1,251 @@
+﻿2026-06-07T07:30:28.5491460Z Current runner version: '2.334.0'
+2026-06-07T07:30:28.5519753Z ##[group]Runner Image Provisioner
+2026-06-07T07:30:28.5521248Z Hosted Compute Agent
+2026-06-07T07:30:28.5522428Z Version: 20260520.533
+2026-06-07T07:30:28.5523540Z Commit: 189110e25284a9812c124fd27b339e2fb4f2f9db
+2026-06-07T07:30:28.5524730Z Build Date: 2026-05-20T17:44:04Z
+2026-06-07T07:30:28.5525819Z Worker ID: {9305c91b-483d-4ff6-a704-260d262610b0}
+2026-06-07T07:30:28.5526987Z Azure Region: westcentralus
+2026-06-07T07:30:28.5528025Z ##[endgroup]
+2026-06-07T07:30:28.5529776Z ##[group]Operating System
+2026-06-07T07:30:28.5530832Z Ubuntu
+2026-06-07T07:30:28.5532308Z 24.04.4
+2026-06-07T07:30:28.5533158Z LTS
+2026-06-07T07:30:28.5534124Z ##[endgroup]
+2026-06-07T07:30:28.5535110Z ##[group]Runner Image
+2026-06-07T07:30:28.5536219Z Image: ***-24.04
+2026-06-07T07:30:28.5537167Z Version: 20260525.161.1
+2026-06-07T07:30:28.5539022Z Included Software: https://github.com/actions/runner-images/blob/***24/20260525.161/images/***/Ubuntu2404-Readme.md
+2026-06-07T07:30:28.5541101Z Image Release: https://github.com/actions/runner-images/releases/tag/***24%2F20260525.161
+2026-06-07T07:30:28.5542818Z ##[endgroup]
+2026-06-07T07:30:28.5544693Z ##[group]GITHUB_TOKEN Permissions
+2026-06-07T07:30:28.5547032Z Contents: read
+2026-06-07T07:30:28.5548188Z Metadata: read
+2026-06-07T07:30:28.5549155Z Packages: read
+2026-06-07T07:30:28.5550177Z ##[endgroup]
+2026-06-07T07:30:28.5553081Z Secret source: Actions
+2026-06-07T07:30:28.5554337Z Prepare workflow directory
+2026-06-07T07:30:28.5909882Z Prepare all required actions
+2026-06-07T07:30:28.5948315Z Getting action download info
+2026-06-07T07:30:29.0608500Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-06-07T07:30:29.1927870Z Download action repository 'appleboy/scp-action@v0.1.7' (SHA:917f8b81dfc1ccd331fef9e2d61bdc6c8be94634)
+2026-06-07T07:30:29.5387165Z Download action repository 'appleboy/ssh-action@v1.0.3' (SHA:029f5b4aeeeb58fdfe1410a5d17f967dacf36262)
+2026-06-07T07:30:30.0694189Z Complete job name: Deploy to AWS EC2
+2026-06-07T07:30:30.1177271Z ##[group]Build container for action use: '/home/runner/work/_actions/appleboy/scp-action/v0.1.7/Dockerfile'.
+2026-06-07T07:30:30.1221147Z ##[command]/usr/bin/docker build -t a0712e:d960453632504d46b6edf974b2e44458 -f "/home/runner/work/_actions/appleboy/scp-action/v0.1.7/Dockerfile" "/home/runner/work/_actions/appleboy/scp-action/v0.1.7"
+2026-06-07T07:30:33.0432136Z #0 building with "default" instance using docker driver
+2026-06-07T07:30:33.0433298Z 
+2026-06-07T07:30:33.0433539Z #1 [internal] load build definition from Dockerfile
+2026-06-07T07:30:33.0434093Z #1 transferring dockerfile: 150B 0.0s done
+2026-06-07T07:30:33.0434590Z #1 DONE 0.0s
+2026-06-07T07:30:33.0434823Z 
+2026-06-07T07:30:33.0435124Z #2 [internal] load metadata for ghcr.io/appleboy/drone-scp:1.6.14
+2026-06-07T07:30:33.7951707Z #2 DONE 0.9s
+2026-06-07T07:30:33.9259350Z 
+2026-06-07T07:30:33.9259946Z #3 [internal] load .dockerignore
+2026-06-07T07:30:33.9260645Z #3 transferring context: 2B done
+2026-06-07T07:30:33.9261322Z #3 DONE 0.0s
+2026-06-07T07:30:33.9261829Z 
+2026-06-07T07:30:33.9262109Z #4 [internal] load build context
+2026-06-07T07:30:33.9262631Z #4 transferring context: 187B done
+2026-06-07T07:30:33.9263111Z #4 DONE 0.0s
+2026-06-07T07:30:33.9263339Z 
+2026-06-07T07:30:33.9263868Z #5 [1/2] FROM ghcr.io/appleboy/drone-scp:1.6.14@sha256:0e0597678b948b0aa09888c66ac75af904cce81baf6af955208527d259c61818
+2026-06-07T07:30:33.9264919Z #5 resolve ghcr.io/appleboy/drone-scp:1.6.14@sha256:0e0597678b948b0aa09888c66ac75af904cce81baf6af955208527d259c61818 done
+2026-06-07T07:30:33.9266419Z #5 sha256:0e0597678b948b0aa09888c66ac75af904cce81baf6af955208527d259c61818 2.38kB / 2.38kB done
+2026-06-07T07:30:33.9267723Z #5 sha256:b49e06fc857838320ee2682058d609a527fd05056650f6f6387b8a320d25aed5 1.24kB / 1.24kB done
+2026-06-07T07:30:33.9268607Z #5 sha256:6e1933d0a1a550dee7c2be05d0c681372d8661e12dec2bd66f028fd3f2e1eccb 3.65kB / 3.65kB done
+2026-06-07T07:30:33.9269578Z #5 sha256:1207c741d8c9b028d98c4006013f9de959da3c55f85b91ed5e4583438a0112ca 0B / 3.38MB 0.1s
+2026-06-07T07:30:33.9270952Z #5 sha256:57fce42a8fe3138af514e9b1be611ec437fe87def8a6946cad1d6b7608188ce2 0B / 284.84kB 0.1s
+2026-06-07T07:30:33.9271977Z #5 sha256:a7e706a435c2a53ff172ba5b50e2a06c2eaf63d2f764bdaabcca52d378beeb35 0B / 1.20kB 0.1s
+2026-06-07T07:30:34.1797463Z #5 sha256:1207c741d8c9b028d98c4006013f9de959da3c55f85b91ed5e4583438a0112ca 3.38MB / 3.38MB 0.3s done
+2026-06-07T07:30:34.1799177Z #5 sha256:57fce42a8fe3138af514e9b1be611ec437fe87def8a6946cad1d6b7608188ce2 284.84kB / 284.84kB 0.3s done
+2026-06-07T07:30:34.1801436Z #5 sha256:a7e706a435c2a53ff172ba5b50e2a06c2eaf63d2f764bdaabcca52d378beeb35 1.20kB / 1.20kB 0.2s done
+2026-06-07T07:30:34.1803208Z #5 extracting sha256:1207c741d8c9b028d98c4006013f9de959da3c55f85b91ed5e4583438a0112ca 0.1s done
+2026-06-07T07:30:34.1804630Z #5 sha256:c5ff66ca7e6bad6eb2c1b483c6c580ef147d04552f3bba4b13ac1b05cf474013 0B / 125B 0.3s
+2026-06-07T07:30:34.1805805Z #5 sha256:103b78775db928290fb85c370d3e47361a507a82b3b7c69c628783e018a9ffb8 0B / 2.49MB 0.3s
+2026-06-07T07:30:34.3107643Z #5 sha256:c5ff66ca7e6bad6eb2c1b483c6c580ef147d04552f3bba4b13ac1b05cf474013 125B / 125B 0.4s done
+2026-06-07T07:30:34.3109605Z #5 extracting sha256:57fce42a8fe3138af514e9b1be611ec437fe87def8a6946cad1d6b7608188ce2 0.0s done
+2026-06-07T07:30:34.3110885Z #5 extracting sha256:a7e706a435c2a53ff172ba5b50e2a06c2eaf63d2f764bdaabcca52d378beeb35
+2026-06-07T07:30:34.5543314Z #5 sha256:103b78775db928290fb85c370d3e47361a507a82b3b7c69c628783e018a9ffb8 2.49MB / 2.49MB 0.4s done
+2026-06-07T07:30:34.5544199Z #5 extracting sha256:a7e706a435c2a53ff172ba5b50e2a06c2eaf63d2f764bdaabcca52d378beeb35 done
+2026-06-07T07:30:34.5544991Z #5 extracting sha256:c5ff66ca7e6bad6eb2c1b483c6c580ef147d04552f3bba4b13ac1b05cf474013 done
+2026-06-07T07:30:34.5545813Z #5 extracting sha256:103b78775db928290fb85c370d3e47361a507a82b3b7c69c628783e018a9ffb8 0.0s done
+2026-06-07T07:30:34.5546379Z #5 DONE 0.6s
+2026-06-07T07:30:34.5546567Z 
+2026-06-07T07:30:34.5546780Z #6 [2/2] COPY entrypoint.sh /bin/entrypoint.sh
+2026-06-07T07:30:34.5547779Z #6 DONE 0.0s
+2026-06-07T07:30:34.5547956Z 
+2026-06-07T07:30:34.5548096Z #7 exporting to image
+2026-06-07T07:30:34.5548435Z #7 exporting layers
+2026-06-07T07:30:35.0046123Z #7 exporting layers 0.6s done
+2026-06-07T07:30:35.0219208Z #7 writing image sha256:40d2e83d02db839dd914bb29e3d6bf6dbaedb14d7b48d97ab7129c27190b78bd done
+2026-06-07T07:30:35.0220006Z #7 naming to docker.io/library/a0712e:d960453632504d46b6edf974b2e44458 done
+2026-06-07T07:30:35.0220516Z #7 DONE 0.6s
+2026-06-07T07:30:35.0399458Z ##[endgroup]
+2026-06-07T07:30:35.0434972Z ##[group]Build container for action use: '/home/runner/work/_actions/appleboy/ssh-action/v1.0.3/Dockerfile'.
+2026-06-07T07:30:35.0436445Z ##[command]/usr/bin/docker build -t a0712e:cb51b235fb6748a9a09f7950a0c47f69 -f "/home/runner/work/_actions/appleboy/ssh-action/v1.0.3/Dockerfile" "/home/runner/work/_actions/appleboy/ssh-action/v1.0.3"
+2026-06-07T07:30:35.2903025Z #0 building with "default" instance using docker driver
+2026-06-07T07:30:35.2903684Z 
+2026-06-07T07:30:35.2903986Z #1 [internal] load build definition from Dockerfile
+2026-06-07T07:30:35.2904672Z #1 transferring dockerfile: 149B done
+2026-06-07T07:30:35.2905237Z #1 DONE 0.0s
+2026-06-07T07:30:35.2905516Z 
+2026-06-07T07:30:35.2905898Z #2 [internal] load metadata for ghcr.io/appleboy/drone-ssh:1.7.3
+2026-06-07T07:30:35.9715373Z #2 DONE 0.8s
+2026-06-07T07:30:36.0847500Z 
+2026-06-07T07:30:36.0847895Z #3 [internal] load .dockerignore
+2026-06-07T07:30:36.0848594Z #3 transferring context: 2B done
+2026-06-07T07:30:36.0849192Z #3 DONE 0.0s
+2026-06-07T07:30:36.0849366Z 
+2026-06-07T07:30:36.0849536Z #4 [internal] load build context
+2026-06-07T07:30:36.0849908Z #4 transferring context: 108B done
+2026-06-07T07:30:36.0850275Z #4 DONE 0.0s
+2026-06-07T07:30:36.0850445Z 
+2026-06-07T07:30:36.0850880Z #5 [1/2] FROM ghcr.io/appleboy/drone-ssh:1.7.3@sha256:179cbd253771007f2ebcaf7a3860afe059207351de1f3378efafac93bd310158
+2026-06-07T07:30:36.0852294Z #5 resolve ghcr.io/appleboy/drone-ssh:1.7.3@sha256:179cbd253771007f2ebcaf7a3860afe059207351de1f3378efafac93bd310158 done
+2026-06-07T07:30:36.0853632Z #5 sha256:7e20f48a19643465f486f59127b8f4e0f4114bedc8bd5260fb4f92d5fda95f1c 0B / 1.20kB 0.1s
+2026-06-07T07:30:36.0854372Z #5 sha256:066e5b821e26d8313055e0314c056e6c297847bcf963e5df10e7aa03107f2246 0B / 125B 0.1s
+2026-06-07T07:30:36.0855109Z #5 sha256:179cbd253771007f2ebcaf7a3860afe059207351de1f3378efafac93bd310158 2.38kB / 2.38kB done
+2026-06-07T07:30:36.0855861Z #5 sha256:1a52f94820e830bc9734623deb03bbafa6a248fba19cdc2e5605c70d90d91441 1.24kB / 1.24kB done
+2026-06-07T07:30:36.0856598Z #5 sha256:c4781b8d012b16b6c7468dc9104fad0a63f2a8815b2af8b7176bb544253ea8c7 3.86kB / 3.86kB done
+2026-06-07T07:30:36.0857347Z #5 sha256:654aaee5654be60f81172539ecd74485cf8bbe2e9137bab0d429862c31c676f6 0B / 284.83kB 0.1s
+2026-06-07T07:30:36.2025970Z #5 sha256:7e20f48a19643465f486f59127b8f4e0f4114bedc8bd5260fb4f92d5fda95f1c 1.20kB / 1.20kB 0.2s done
+2026-06-07T07:30:36.2027050Z #5 sha256:654aaee5654be60f81172539ecd74485cf8bbe2e9137bab0d429862c31c676f6 284.83kB / 284.83kB 0.2s done
+2026-06-07T07:30:36.2028142Z #5 extracting sha256:654aaee5654be60f81172539ecd74485cf8bbe2e9137bab0d429862c31c676f6 0.0s done
+2026-06-07T07:30:36.2029376Z #5 sha256:47353a6f9201a145b687290e5ae0278ac269faf4bb61bee3e9246c37a8d74277 0B / 2.44MB 0.2s
+2026-06-07T07:30:36.3818474Z #5 sha256:066e5b821e26d8313055e0314c056e6c297847bcf963e5df10e7aa03107f2246 125B / 125B 0.2s done
+2026-06-07T07:30:36.3819752Z #5 extracting sha256:7e20f48a19643465f486f59127b8f4e0f4114bedc8bd5260fb4f92d5fda95f1c done
+2026-06-07T07:30:36.3821034Z #5 extracting sha256:066e5b821e26d8313055e0314c056e6c297847bcf963e5df10e7aa03107f2246 done
+2026-06-07T07:30:36.3822265Z #5 extracting sha256:47353a6f9201a145b687290e5ae0278ac269faf4bb61bee3e9246c37a8d74277
+2026-06-07T07:30:36.5890644Z #5 sha256:47353a6f9201a145b687290e5ae0278ac269faf4bb61bee3e9246c37a8d74277 2.44MB / 2.44MB 0.4s done
+2026-06-07T07:30:36.5892160Z #5 extracting sha256:47353a6f9201a145b687290e5ae0278ac269faf4bb61bee3e9246c37a8d74277 0.0s done
+2026-06-07T07:30:36.5893262Z #5 DONE 0.5s
+2026-06-07T07:30:36.5893523Z 
+2026-06-07T07:30:36.5893844Z #6 [2/2] COPY entrypoint.sh /bin/entrypoint.sh
+2026-06-07T07:30:36.5894308Z #6 DONE 0.0s
+2026-06-07T07:30:36.5894477Z 
+2026-06-07T07:30:36.5894626Z #7 exporting to image
+2026-06-07T07:30:36.5894953Z #7 exporting layers
+2026-06-07T07:30:37.0038622Z #7 exporting layers 0.6s done
+2026-06-07T07:30:37.0190714Z #7 writing image sha256:603c175d418ee880b3868715698e37e46b7780c3e86d57101ee36b5f37ee822d done
+2026-06-07T07:30:37.0192334Z #7 naming to docker.io/library/a0712e:cb51b235fb6748a9a09f7950a0c47f69 done
+2026-06-07T07:30:37.0193136Z #7 DONE 0.6s
+2026-06-07T07:30:37.0263999Z ##[endgroup]
+2026-06-07T07:30:37.0548887Z ##[group]Run actions/checkout@v4
+2026-06-07T07:30:37.0549495Z with:
+2026-06-07T07:30:37.0549917Z   repository: ***x7/web_uas
+2026-06-07T07:30:37.0553454Z   token: ***
+2026-06-07T07:30:37.0553783Z   ssh-strict: true
+2026-06-07T07:30:37.0554096Z   ssh-user: git
+2026-06-07T07:30:37.0554442Z   persist-credentials: true
+2026-06-07T07:30:37.0554800Z   clean: true
+2026-06-07T07:30:37.0555122Z   sparse-checkout-cone-mode: true
+2026-06-07T07:30:37.0555507Z   fetch-depth: 1
+2026-06-07T07:30:37.0555820Z   fetch-tags: false
+2026-06-07T07:30:37.0556136Z   show-progress: true
+2026-06-07T07:30:37.0556448Z   lfs: false
+2026-06-07T07:30:37.0556744Z   submodules: false
+2026-06-07T07:30:37.0557055Z   set-safe-directory: true
+2026-06-07T07:30:37.0557650Z ##[endgroup]
+2026-06-07T07:30:37.1701948Z Syncing repository: ***x7/web_uas
+2026-06-07T07:30:37.1703363Z ##[group]Getting Git version info
+2026-06-07T07:30:37.1703852Z Working directory is '/home/runner/work/web_uas/web_uas'
+2026-06-07T07:30:37.1704665Z [command]/usr/bin/git version
+2026-06-07T07:30:37.1705030Z git version 2.54.0
+2026-06-07T07:30:37.1713918Z ##[endgroup]
+2026-06-07T07:30:37.1727966Z Temporarily overriding HOME='/home/runner/work/_temp/841160d1-1312-4af3-a594-f9dd1fc4c9d2' before making global git config changes
+2026-06-07T07:30:37.1728997Z Adding repository directory to the temporary git global config as a safe directory
+2026-06-07T07:30:37.1741419Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/web_uas/web_uas
+2026-06-07T07:30:37.1784382Z Deleting the contents of '/home/runner/work/web_uas/web_uas'
+2026-06-07T07:30:37.1788250Z ##[group]Initializing the repository
+2026-06-07T07:30:37.1792566Z [command]/usr/bin/git init /home/runner/work/web_uas/web_uas
+2026-06-07T07:30:37.1893057Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-06-07T07:30:37.1894030Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-06-07T07:30:37.1895054Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-06-07T07:30:37.1895679Z hint: call:
+2026-06-07T07:30:37.1895979Z hint:
+2026-06-07T07:30:37.1896388Z hint: 	git config --global init.defaultBranch <name>
+2026-06-07T07:30:37.1896826Z hint:
+2026-06-07T07:30:37.1897258Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-06-07T07:30:37.1897914Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-06-07T07:30:37.1898421Z hint:
+2026-06-07T07:30:37.1898780Z hint: 	git branch -m <name>
+2026-06-07T07:30:37.1899304Z hint:
+2026-06-07T07:30:37.1899978Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-06-07T07:30:37.1900826Z Initialized empty Git repository in /home/runner/work/web_uas/web_uas/.git/
+2026-06-07T07:30:37.1911725Z [command]/usr/bin/git remote add origin https://github.com/***x7/web_uas
+2026-06-07T07:30:37.1953453Z ##[endgroup]
+2026-06-07T07:30:37.1954052Z ##[group]Disabling automatic garbage collection
+2026-06-07T07:30:37.1958851Z [command]/usr/bin/git config --local gc.auto 0
+2026-06-07T07:30:37.1988171Z ##[endgroup]
+2026-06-07T07:30:37.1988986Z ##[group]Setting up auth
+2026-06-07T07:30:37.1996257Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-06-07T07:30:37.2029562Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-06-07T07:30:37.2382966Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-06-07T07:30:37.2413160Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-06-07T07:30:37.2647460Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-06-07T07:30:37.2682984Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-06-07T07:30:37.2917012Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-06-07T07:30:37.2952967Z ##[endgroup]
+2026-06-07T07:30:37.2960416Z ##[group]Fetching the repository
+2026-06-07T07:30:37.2961394Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9711dd55bd296856ced61fd2ed5be55301c81682:refs/remotes/origin/main
+2026-06-07T07:30:37.6779178Z From https://github.com/***x7/web_uas
+2026-06-07T07:30:37.6780101Z  * [new ref]         9711dd55bd296856ced61fd2ed5be55301c81682 -> origin/main
+2026-06-07T07:30:37.6815546Z ##[endgroup]
+2026-06-07T07:30:37.6816402Z ##[group]Determining the checkout info
+2026-06-07T07:30:37.6818005Z ##[endgroup]
+2026-06-07T07:30:37.6825647Z [command]/usr/bin/git sparse-checkout disable
+2026-06-07T07:30:37.6872365Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-06-07T07:30:37.6901342Z ##[group]Checking out the ref
+2026-06-07T07:30:37.6907018Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-06-07T07:30:37.6960464Z Switched to a new branch 'main'
+2026-06-07T07:30:37.6963746Z branch 'main' set up to track 'origin/main'.
+2026-06-07T07:30:37.6970864Z ##[endgroup]
+2026-06-07T07:30:37.7013574Z [command]/usr/bin/git log -1 --format=%H
+2026-06-07T07:30:37.7037016Z 9711dd55bd296856ced61fd2ed5be55301c81682
+2026-06-07T07:30:37.7314354Z ##[group]Run appleboy/scp-action@v0.1.7
+2026-06-07T07:30:37.7314768Z with:
+2026-06-07T07:30:37.7315173Z   host: ***
+2026-06-07T07:30:37.7315488Z   username: ***
+2026-06-07T07:30:37.7322854Z   key: ***
+2026-06-07T07:30:37.7323197Z   source: docker-compose.yml,database/init.sql
+2026-06-07T07:30:37.7323645Z   target: /home/***/uas-project
+2026-06-07T07:30:37.7323992Z   port: 22
+2026-06-07T07:30:37.7324286Z   timeout: 30s
+2026-06-07T07:30:37.7324595Z   command_timeout: 10m
+2026-06-07T07:30:37.7324939Z   use_insecure_cipher: false
+2026-06-07T07:30:37.7325272Z   rm: false
+2026-06-07T07:30:37.7325560Z   debug: false
+2026-06-07T07:30:37.7325870Z   strip_components: 0
+2026-06-07T07:30:37.7326190Z   overwrite: false
+2026-06-07T07:30:37.7326510Z   tar_dereference: false
+2026-06-07T07:30:37.7326852Z   tar_exec: tar
+2026-06-07T07:30:37.7327152Z   proxy_port: 22
+2026-06-07T07:30:37.7327466Z   proxy_timeout: 30s
+2026-06-07T07:30:37.7327799Z   proxy_use_insecure_cipher: false
+2026-06-07T07:30:37.7328199Z ##[endgroup]
+2026-06-07T07:30:37.7434179Z ##[command]/usr/bin/docker run --name a0712ed960453632504d46b6edf974b2e44458_bea793 --label a0712e --workdir /github/workspace --rm -e "INPUT_HOST" -e "INPUT_USERNAME" -e "INPUT_KEY" -e "INPUT_SOURCE" -e "INPUT_TARGET" -e "INPUT_PORT" -e "INPUT_PASSWORD" -e "INPUT_TIMEOUT" -e "INPUT_COMMAND_TIMEOUT" -e "INPUT_KEY_PATH" -e "INPUT_PASSPHRASE" -e "INPUT_FINGERPRINT" -e "INPUT_USE_INSECURE_CIPHER" -e "INPUT_RM" -e "INPUT_DEBUG" -e "INPUT_STRIP_COMPONENTS" -e "INPUT_OVERWRITE" -e "INPUT_TAR_DEREFERENCE" -e "INPUT_TAR_TMP_PATH" -e "INPUT_TAR_EXEC" -e "INPUT_PROXY_HOST" -e "INPUT_PROXY_PORT" -e "INPUT_PROXY_USERNAME" -e "INPUT_PROXY_PASSWORD" -e "INPUT_PROXY_PASSPHRASE" -e "INPUT_PROXY_TIMEOUT" -e "INPUT_PROXY_KEY" -e "INPUT_PROXY_KEY_PATH" -e "INPUT_PROXY_FINGERPRINT" -e "INPUT_PROXY_USE_INSECURE_CIPHER" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e "ACTIONS_ORCHESTRATION_ID" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/web_uas/web_uas":"/github/workspace" a0712e:d960453632504d46b6edf974b2e44458
+2026-06-07T07:30:37.9564328Z drone-scp version: v1.6.14
+2026-06-07T07:30:37.9565000Z tar all files into /tmp/fMijIomtMM.tar.gz
+2026-06-07T07:31:07.9667378Z remote server os type is unix
+2026-06-07T07:31:07.9667959Z scp file to server.
+2026-06-07T07:31:37.9971063Z 2026/06/07 07:31:37 error copy file to dest: ***, error message: dial tcp ***:22: i/o timeout
+2026-06-07T07:31:37.9972499Z drone-scp error: error copy file to dest: ***, error message: dial tcp ***:22: i/o timeout
+2026-06-07T07:31:37.9973429Z 
+2026-06-07T07:31:38.0776846Z Post job cleanup.
+2026-06-07T07:31:38.1783683Z [command]/usr/bin/git version
+2026-06-07T07:31:38.1820041Z git version 2.54.0
+2026-06-07T07:31:38.1861281Z Temporarily overriding HOME='/home/runner/work/_temp/9e6f4a37-ab63-4d6f-a846-446850f6f303' before making global git config changes
+2026-06-07T07:31:38.1862808Z Adding repository directory to the temporary git global config as a safe directory
+2026-06-07T07:31:38.1867036Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/web_uas/web_uas
+2026-06-07T07:31:38.1909646Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-06-07T07:31:38.1942968Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-06-07T07:31:38.2175418Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-06-07T07:31:38.2199947Z http.https://github.com/.extraheader
+2026-06-07T07:31:38.2212957Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-06-07T07:31:38.2245236Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-06-07T07:31:38.2475381Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-06-07T07:31:38.2507152Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-06-07T07:31:38.2874515Z Cleaning up orphan processes
+2026-06-07T07:31:38.3229029Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4. Actions will be forced to run with Node.js 24 by default starting June 16th, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
