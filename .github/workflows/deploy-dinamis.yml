@@ -63,4 +63,11 @@ jobs:
             export DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME
             docker compose pull web-dinamis db
             docker compose up -d --force-recreate web-dinamis db
+            
+            echo "Waiting for database to be ready..."
+            sleep 15
+            
+            echo "Applying schema updates..."
+            docker exec -i uas-db mysql -u root -prootpassword uas_db < ./database/init.sql
+            
             echo "✅ Web Dinamis and Database deployed successfully"
