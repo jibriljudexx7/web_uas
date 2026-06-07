@@ -1,0 +1,54 @@
+name: Deploy Web Statis
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'web-statis/**'
+      - '.github/workflows/deploy-statis.yml'
+
+jobs:
+  build-and-push:
+    name: Build & Push Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./web-statis
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/uas_statis:latest
+
+  deploy:
+    name: Deploy to AWS EC2
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/uas_statis:latest
+            docker stop web-statis || true
+            docker rm web-statis || true
+            docker run -d \
+              --name web-statis \
+              --network uas-network \
+              --restart unless-stopped \
+              ${{ secrets.DOCKERHUB_USERNAME }}/uas_statis:latest
+            echo "✅ Web Statis deployed successfully"
