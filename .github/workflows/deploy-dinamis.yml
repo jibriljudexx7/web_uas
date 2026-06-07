@@ -28,6 +28,7 @@ jobs:
         with:
           context: ./web-dinamis
           push: true
+          no-cache: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/uas-dinamis:latest
 
   deploy:
@@ -61,5 +62,5 @@ jobs:
             cd /home/${{ secrets.AWS_USERNAME }}/uas-project/web-dinamis
             export DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME
             docker compose pull web-dinamis db
-            docker compose up -d web-dinamis db
+            docker compose up -d --force-recreate web-dinamis db
             echo "✅ Web Dinamis and Database deployed successfully"
