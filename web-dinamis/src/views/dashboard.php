@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Cover Image URL</label>
-                <input type="url" name="image_url" class="form-control" placeholder="https://...">
+                <input type="text" name="image_url" class="form-control" placeholder="https://... atau paste URL gambar">
             </div>
             <div class="form-group">
                 <label class="form-label">Content</label>
