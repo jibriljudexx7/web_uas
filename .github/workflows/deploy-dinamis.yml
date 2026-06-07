@@ -7,7 +7,7 @@ on:
     paths:
       - 'web-dinamis/**'
       - 'docker-compose.yml'
-      - 'database/**'
+      - 'web-dinamis/database/**'
       - '.github/workflows/deploy-dinamis.yml'
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: "docker-compose.yml,database/init.sql"
+          source: "docker-compose.yml,web-dinamis/database/init.sql"
           target: "/home/${{ secrets.AWS_USERNAME }}/uas-project"
 
       - name: Deploy via SSH
