@@ -19,9 +19,12 @@ class NewsModel {
     public function create($title, $content, $image_url) {
         $query = "INSERT INTO " . $this->table_name . " (title, content, image_url) VALUES (:title, :content, :image_url)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(":title", htmlspecialchars(strip_tags($title)));
-        $stmt->bindParam(":content", htmlspecialchars(strip_tags($content)));
-        $stmt->bindParam(":image_url", htmlspecialchars(strip_tags($image_url)));
+        $cleanTitle = htmlspecialchars(strip_tags($title));
+        $cleanContent = htmlspecialchars(strip_tags($content));
+        $cleanImageUrl = htmlspecialchars(strip_tags($image_url));
+        $stmt->bindParam(":title", $cleanTitle);
+        $stmt->bindParam(":content", $cleanContent);
+        $stmt->bindParam(":image_url", $cleanImageUrl);
         return $stmt->execute();
     }
 

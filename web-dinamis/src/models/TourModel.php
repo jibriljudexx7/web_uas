@@ -19,8 +19,10 @@ class TourModel {
     public function create($city, $venue, $tour_date, $status) {
         $query = "INSERT INTO " . $this->table_name . " (city, venue, tour_date, status) VALUES (:city, :venue, :tour_date, :status)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(":city", htmlspecialchars(strip_tags($city)));
-        $stmt->bindParam(":venue", htmlspecialchars(strip_tags($venue)));
+        $cleanCity = htmlspecialchars(strip_tags($city));
+        $cleanVenue = htmlspecialchars(strip_tags($venue));
+        $stmt->bindParam(":city", $cleanCity);
+        $stmt->bindParam(":venue", $cleanVenue);
         $stmt->bindParam(":tour_date", $tour_date);
         $stmt->bindParam(":status", $status);
         return $stmt->execute();
