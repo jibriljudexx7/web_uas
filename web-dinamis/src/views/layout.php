@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guestbook - Metal MVC</title>
+    <title><?= $pageTitle ?? 'Guestbook - Metal MVC' ?></title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <style>
@@ -116,6 +116,29 @@
         .entry-name { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; }
         .entry-date { font-size: 0.9rem; color: var(--silver-dark); }
         .entry-message { font-size: 1.1rem; line-height: 1.5; color: var(--silver-light); }
+
+        /* User bar */
+        .user-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.6); border: 1px solid var(--border-metal);
+            padding: 0.75rem 1.25rem; margin-bottom: 1.5rem; border-radius: 2px;
+            font-family: 'Rajdhani', sans-serif; font-size: 1rem;
+        }
+        .user-bar strong { color: #00ffaa; }
+        .btn-logout {
+            color: var(--accent-red); text-decoration: none; font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;
+            padding: 5px 12px; border: 1px solid var(--accent-red); border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .btn-logout:hover {
+            background: var(--accent-red); color: #fff;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Login panel */
+        .login-panel { max-width: 420px; margin: 2rem auto; }
+        .login-header { text-align: center; margin-bottom: 2rem; }
     </style>
 </head>
 <body>

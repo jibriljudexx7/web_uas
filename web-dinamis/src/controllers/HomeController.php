@@ -25,6 +25,9 @@ class HomeController {
             }
         }
 
+        // Get logged-in user info
+        $loggedUser = $_SESSION['full_name'] ?? 'Unknown';
+
         // Fetch entries
         $entries = $this->model->getAllEntries();
 

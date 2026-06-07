@@ -7,6 +7,11 @@
     <div class="alert"><i class="ti ti-alert-triangle"></i> <?= $errorMsg ?></div>
 <?php endif; ?>
 
+<div class="user-bar">
+    <span><i class="ti ti-user-check"></i> Logged in as: <strong><?= htmlspecialchars($loggedUser) ?></strong></span>
+    <a href="index.php?page=logout" class="btn-logout"><i class="ti ti-logout"></i> Logout</a>
+</div>
+
 <div class="panel">
     <div class="rivet tl"></div><div class="rivet tr"></div><div class="rivet bl"></div><div class="rivet br"></div>
     <form method="POST" action="index.php">
@@ -44,5 +49,6 @@
 
 <?php 
 $content = ob_get_clean();
+$pageTitle = 'Guestbook - System Log';
 require_once __DIR__ . '/layout.php';
 ?>
