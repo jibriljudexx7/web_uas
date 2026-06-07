@@ -17,6 +17,12 @@ class DashboardController {
     }
 
     public function index() {
+        // Only admin can access dashboard
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: index.php?page=schedule');
+            exit;
+        }
+
         $news = $this->newsModel->getAll();
         $tours = $this->tourModel->getAll();
         

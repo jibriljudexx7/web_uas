@@ -377,10 +377,14 @@
         </a>
         <div class="navbar-nav">
             <?php if (isset($_SESSION['user_id'])): ?>
-                <a href="index.php?page=dashboard" class="nav-link"><i class="ti ti-layout-dashboard"></i> Dashboard</a>
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                    <a href="index.php?page=dashboard" class="nav-link"><i class="ti ti-layout-dashboard"></i> Dashboard</a>
+                <?php else: ?>
+                    <a href="index.php?page=schedule" class="nav-link"><i class="ti ti-ticket"></i> Schedule</a>
+                <?php endif; ?>
                 <a href="index.php?page=logout" class="btn-nav"><i class="ti ti-logout"></i> Logout</a>
             <?php else: ?>
-                <a href="index.php?page=login" class="btn-nav"><i class="ti ti-login"></i> Admin Login</a>
+                <a href="index.php?page=login" class="btn-nav"><i class="ti ti-login"></i> Sign In</a>
             <?php endif; ?>
         </div>
     </nav>

@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS uas_db;
+DROP DATABASE IF EXISTS uas_db;
+CREATE DATABASE uas_db;
 USE uas_db;
 
 CREATE TABLE IF NOT EXISTS users (
@@ -6,6 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
+    role ENUM('admin', 'fan') DEFAULT 'fan',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -27,9 +29,9 @@ CREATE TABLE IF NOT EXISTS tours (
 );
 
 -- Seed users (password: password)
-INSERT INTO users (username, password, full_name) VALUES 
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrator'),
-('jibril', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Jibril Judex Facti Aliyudin');
+INSERT INTO users (username, password, full_name, role) VALUES 
+('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrator', 'admin'),
+('jibril', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Jibril Judex Facti Aliyudin', 'fan');
 
 -- Seed news
 INSERT INTO news (title, content, image_url) VALUES 

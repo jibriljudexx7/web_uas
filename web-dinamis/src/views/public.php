@@ -7,41 +7,16 @@
     <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Official portal for the latest news, updates, and world tour schedules.</p>
 </div>
 
-<!-- Tour Dates Section -->
+<!-- Tour Dates Section (Call to action) -->
 <h2 class="section-title"><i class="ti ti-ticket"></i> Upcoming World Tour</h2>
-<div class="glass-card" style="margin-bottom: 3rem; padding: 0;">
-    <div class="table-container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>City</th>
-                    <th>Venue</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (empty($tours)): ?>
-                    <tr><td colspan="4" style="text-align: center; padding: 2rem;">No tour dates announced yet.</td></tr>
-                <?php else: ?>
-                    <?php foreach($tours as $tour): ?>
-                        <tr>
-                            <td style="font-weight: 500;"><?= date('M d, Y', strtotime($tour['tour_date'])) ?></td>
-                            <td style="color: white;"><?= htmlspecialchars($tour['city']) ?></td>
-                            <td><i class="ti ti-map-pin" style="font-size: 0.875rem; color: var(--text-secondary);"></i> <?= htmlspecialchars($tour['venue']) ?></td>
-                            <td>
-                                <?php
-                                    $badgeClass = 'badge-upcoming';
-                                    if ($tour['status'] == 'Sold Out') $badgeClass = 'badge-soldout';
-                                    if ($tour['status'] == 'Completed') $badgeClass = 'badge-completed';
-                                ?>
-                                <span class="badge <?= $badgeClass ?>"><?= htmlspecialchars($tour['status']) ?></span>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </tbody>
-        </table>
+<div class="glass-card" style="margin-bottom: 3rem; text-align: center; padding: 4rem 2rem;">
+    <i class="ti ti-lock" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: 1rem;"></i>
+    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Exclusive Content</h3>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">Join the inner circle to view our full world tour schedule, get early access to tickets, and view exclusive behind-the-scenes content.</p>
+    <a href="index.php?page=login" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;"><i class="ti ti-user"></i> Login to View Tour Dates</a>
+    <div style="margin-top: 1rem;">
+        <span style="color: var(--text-secondary);">Not a member? </span>
+        <a href="index.php?page=register" style="color: var(--accent-primary); text-decoration: none;">Register Now</a>
     </div>
 </div>
 
@@ -67,6 +42,6 @@
 </div>
 
 <?php 
-$content = ob_get_clean();
-require_once __DIR__ . '/layout.php';
+$content = ob_get_clean(); 
+// PublicController already requires layout.php, so we don't need to require it here!
 ?>
