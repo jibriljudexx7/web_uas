@@ -1,617 +1,277 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jibril Judex Facti Aliyudin — CV</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <style>
-    :root {
-      --gold: #c9a84c;
-      --gold-light: #e8c96a;
-      --gold-dark: #8a6820;
-      --parchment: #f5e9cc;
-      --parchment-dark: #e8d5a3;
-      --ink: #1a1208;
-      --ink-light: #3d2e10;
-      --crimson: #8b1a1a;
-      --stone: #2c2416;
-      --stone-light: #4a3c28;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes of Eternity | Official Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        :root {
+            --dark: #09090b;
+            --darker: #000000;
+            --accent: #ef4444; /* Blood Red */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: #1a130a;
-      background-image:
-        radial-gradient(ellipse at 20% 20%, #2c1f0e 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 80%, #1f1608 0%, transparent 60%);
-      min-height: 100vh;
-      font-family: 'Crimson Text', serif;
-      color: var(--ink);
-      padding: 2rem 1rem;
-    }
+        body {
+            background-color: var(--darker);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    .scroll-container {
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--parchment);
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(139, 104, 32, 0.06) 28px, rgba(139, 104, 32, 0.06) 29px);
-      border: 3px solid var(--gold-dark);
-      box-shadow:
-        0 0 0 6px #1a130a,
-        0 0 0 8px var(--gold-dark),
-        0 20px 60px rgba(0, 0, 0, 0.8),
-        inset 0 0 40px rgba(201, 168, 76, 0.08);
-      position: relative;
-      overflow: hidden;
-    }
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+        }
 
-    .scroll-top,
-    .scroll-bottom {
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
-      padding: 1.2rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%), url('assets/hero.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
 
-    .scroll-top::after,
-    .scroll-bottom::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--gold-dark);
-    }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--darker) 0%, transparent 100%);
+        }
 
-    .scroll-top::after {
-      bottom: 0;
-    }
+        .band-logo {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+            margin-bottom: 1rem;
+            z-index: 10;
+        }
 
-    .scroll-bottom::before {
-      top: 0;
-    }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            z-index: 10;
+        }
 
-    .ornament {
-      font-size: 1.8rem;
-      color: var(--stone);
-      opacity: 0.7;
-      user-select: none;
-    }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            z-index: 10;
+        }
 
-    .scroll-body {
-      padding: 2.5rem 3rem;
-    }
+        .btn:hover {
+            background: var(--accent);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+        }
 
-    /* HEADER */
-    .header {
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid var(--gold-dark);
-      margin-bottom: 2rem;
-      position: relative;
-    }
+        /* Section Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
 
-    .header-divider-icon {
-      position: absolute;
-      bottom: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--parchment);
-      padding: 0 12px;
-      color: var(--gold-dark);
-      font-size: 1.4rem;
-      line-height: 1;
-    }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
 
-    .crest {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 1rem;
-      border: 4px solid var(--gold-dark);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      box-shadow:
-        0 0 0 3px var(--gold),
-        0 0 0 6px var(--gold-dark),
-        0 8px 24px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
-      position: relative;
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-    }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
 
-    .crest img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
 
-    .crest-fallback {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--stone);
-    }
+        .about-img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
+            filter: grayscale(80%) contrast(120%);
+            transition: filter 0.5s;
+        }
 
-    .name {
-      font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--stone);
-      letter-spacing: 0.05em;
-      line-height: 1.2;
-      margin-bottom: 0.4rem;
-    }
+        .about-img:hover {
+            filter: grayscale(0%) contrast(100%);
+        }
 
-    .title-banner {
-      display: inline-block;
-      background: var(--stone);
-      color: var(--gold-light);
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      padding: 4px 20px;
-      margin: 0.5rem 0 1rem;
-      text-transform: uppercase;
-    }
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
 
-    .contact-row {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-      color: var(--ink-light);
-    }
+        /* Album Section */
+        .album-section {
+            background-color: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-    .contact-row span {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+        .album-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
 
-    .contact-row .ti {
-      font-size: 1rem;
-      color: var(--gold-dark);
-      flex-shrink: 0;
-    }
+        .album-cover {
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    .contact-row a {
-      color: var(--crimson);
-      text-decoration: none;
-      font-style: italic;
-    }
+        .tracklist {
+            list-style: none;
+            margin-top: 2rem;
+        }
 
-    .contact-row a:hover {
-      text-decoration: underline;
-    }
+        .tracklist li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+        }
 
-    .skill-group-title .ti {
-      font-size: 0.85rem;
-      vertical-align: -1px;
-      margin-right: 4px;
-    }
+        .tracklist li span.track-name {
+            color: #fff;
+        }
 
-    /* SECTIONS */
-    .section {
-      margin-bottom: 2rem;
-    }
+        /* Portal Banner */
+        .portal-banner {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(45deg, var(--darker) 0%, #1a0505 100%);
+            border-top: 2px solid var(--accent);
+        }
 
-    .section-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--stone);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--gold);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--darker);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
 
-    .section-title::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      background: var(--gold-dark);
-      transform: rotate(45deg);
-      flex-shrink: 0;
-    }
-
-    /* ABOUT */
-    .about-text {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: var(--ink-light);
-      font-style: italic;
-      padding: 1rem 1.5rem;
-      border-left: 3px solid var(--gold);
-      background: rgba(201, 168, 76, 0.06);
-    }
-
-    /* EDUCATION & EXPERIENCE */
-    .entry {
-      margin-bottom: 1.4rem;
-      position: relative;
-      padding-left: 1.2rem;
-    }
-
-    .entry::before {
-      content: '◆';
-      position: absolute;
-      left: 0;
-      top: 3px;
-      font-size: 0.5rem;
-      color: var(--gold-dark);
-    }
-
-    .entry-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .entry-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--stone);
-    }
-
-    .entry-date {
-      font-size: 0.85rem;
-      color: var(--gold-dark);
-      font-style: italic;
-      white-space: nowrap;
-    }
-
-    .entry-sub {
-      font-size: 0.95rem;
-      color: var(--crimson);
-      font-weight: 600;
-      margin: 2px 0 4px;
-    }
-
-    .entry-desc {
-      font-size: 0.95rem;
-      color: var(--ink-light);
-      line-height: 1.6;
-    }
-
-    .entry-desc ul {
-      padding-left: 1.2rem;
-    }
-
-    .entry-desc li {
-      margin-bottom: 3px;
-    }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .skill-group {}
-
-    .skill-group-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--gold-dark);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .skill-tag {
-      font-size: 0.85rem;
-      background: var(--stone);
-      color: var(--gold-light);
-      padding: 3px 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-
-    /* PROJECTS */
-    .project {
-      margin-bottom: 1.2rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid var(--parchment-dark);
-      background: rgba(201, 168, 76, 0.04);
-      position: relative;
-    }
-
-    .project::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--gold-dark), var(--gold));
-    }
-
-    .project-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--stone);
-      margin-bottom: 4px;
-    }
-
-    .project-tech {
-      font-size: 0.8rem;
-      color: var(--gold-dark);
-      font-style: italic;
-      margin-bottom: 6px;
-    }
-
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--ink-light);
-      line-height: 1.6;
-    }
-
-    /* DIVIDER */
-    .divider {
-      text-align: center;
-      color: var(--gold-dark);
-      font-size: 1rem;
-      letter-spacing: 0.5em;
-      margin: 1.5rem 0;
-      opacity: 0.6;
-    }
-
-    /* FOOTER */
-    .footer-text {
-      text-align: center;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      color: var(--gold-dark);
-      letter-spacing: 0.1em;
-      opacity: 0.7;
-      padding: 1rem;
-    }
-
-    @media (max-width: 600px) {
-      .scroll-body {
-        padding: 1.5rem 1.2rem;
-      }
-
-      .name {
-        font-size: 1.4rem;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .entry-header {
-        flex-direction: column;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .about-grid, .album-grid {
+                grid-template-columns: 1fr;
+            }
+            .band-logo {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="scroll-container">
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1 class="band-logo">Echoes of Eternity</h1>
+        <p class="hero-subtitle">Heavy Metal from the Abyss</p>
+        <a href="#music" class="btn">Listen Now</a>
+    </header>
 
-    <div class="scroll-top">
-      <span class="ornament">⚜</span>
-      <span
-        style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.2em; color:#1a1208; opacity:0.7;">CURRICULUM
-        VITAE</span>
-      <span class="ornament">⚜</span>
-    </div>
-
-    <div class="scroll-body">
-
-      <!-- HEADER -->
-      <div class="header">
-        <div class="crest">
-          <img src="assets/profile.jpg" alt="Foto Jibril Judex Facti Aliyudin"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="crest-fallback" style="display:none;">JJ</div>
-        </div>
-        <h1 class="name">Jibril Judex Facti Aliyudin</h1>
-        <div class="title-banner">Ksatria Teknologi Informasi</div>
-        <span class="header-divider-icon"><i class="ti ti-sword"
-            style="color:var(--gold-dark); font-size:1.3rem;"></i></span>
-        <div class="contact-row">
-          <span><i class="ti ti-map-pin" aria-hidden="true"></i> Cirebon, Jawa Barat</span>
-          <span><i class="ti ti-mail" aria-hidden="true"></i> <a
-              href="mailto:jibriljudex@email.com">jibriljudex@email.com</a></span>
-          <span><i class="ti ti-brand-github" aria-hidden="true"></i> <a href="https://github.com/jibriljudexx7"
-              target="_blank">github.com/jibriljudexx7</a></span>
-        </div>
-      </div>
-
-      <!-- ABOUT -->
-      <div class="section">
-        <h2 class="section-title">Tentang Sang Ksatria</h2>
-        <p class="about-text">
-          Seorang pejuang di ranah teknologi informasi yang tengah menempa ilmu di bidang administrasi server dan
-          komputasi awan. Bersenjatakan kode dan berperisai logika, saya berdedikasi untuk membangun sistem yang kokoh,
-          otomatis, dan dapat diandalkan — layaknya benteng yang tak tertaklukkan.
-        </p>
-      </div>
-
-      <!-- EDUCATION -->
-      <div class="section">
-        <h2 class="section-title">Perguruan & Tempa Ilmu</h2>
-
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">UIN Siber Syekh Nurjati Cirebon</span>
-            <span class="entry-date">2022 — Sekarang</span>
-          </div>
-          <div class="entry-sub">S1 Informatika</div>
-          <div class="entry-desc">Mendalami ilmu rekayasa perangkat lunak, jaringan komputer, dan administrasi sistem.
-            Aktif dalam proyek berbasis cloud computing dan pengembangan aplikasi web.</div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">SMK Negeri — Jurusan RPL</span>
-            <span class="entry-date">2019 — 2022</span>
-          </div>
-          <div class="entry-sub">Rekayasa Perangkat Lunak AWS</div>
-          <div class="entry-desc">Membangun fondasi pemrograman dan pengembangan web yang menjadi bekal tempur di dunia
-            teknologi.</div>
-        </div>
-      </div>
-
-      <div class="divider">
-        <i class="ti ti-diamond" aria-hidden="true"></i>
-        &nbsp;&nbsp;
-        <i class="ti ti-diamond" aria-hidden="true"></i>
-        &nbsp;&nbsp;
-        <i class="ti ti-diamond" aria-hidden="true"></i>
-      </div>
-
-      <!-- SKILLS -->
-      <div class="section">
-        <h2 class="section-title">Senjata & Keahlianku</h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <div class="skill-group-title"><i class="ti ti-code" aria-hidden="true"></i> Bahasa Pemrograman</div>
-            <div class="skill-tags">
-              <span class="skill-tag">PHP</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">HTML/CSS</span>
+    <!-- About Section -->
+    <section class="container">
+        <div class="about-grid">
+            <div>
+                <img src="assets/band.png" alt="Echoes of Eternity Band Members" class="about-img">
             </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-title"><i class="ti ti-cloud" aria-hidden="true"></i> Server & Cloud</div>
-            <div class="skill-tags">
-              <span class="skill-tag">AWS EC2</span>
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">Nginx</span>
-              <span class="skill-tag">Linux</span>
+            <div class="about-text">
+                <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                    <h2>The Genesis</h2>
+                </div>
+                <p>Formed in the depths of the underground metal scene, Echoes of Eternity combines blistering guitar riffs, thunderous blast beats, and haunting symphonic elements to create a soundscape that is both brutal and beautiful.</p>
+                <p>With three critically acclaimed studio albums and a reputation for explosive, high-energy live performances, we have established ourselves as one of the premier extreme metal acts of this decade. Join our legion.</p>
+                <a href="/app/" class="btn" style="margin-top: 1rem; padding: 0.8rem 2rem; font-size: 0.9rem;">View Tour Dates</a>
             </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-title"><i class="ti ti-settings-automation" aria-hidden="true"></i> DevOps & CI/CD
+        </div>
+    </section>
+
+    <!-- Latest Album Section -->
+    <section id="music" class="album-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Release</h2>
+                <p style="color: var(--text-muted);">Symphony of Destruction (2026)</p>
             </div>
-            <div class="skill-tags">
-              <span class="skill-tag">GitHub Actions</span>
-              <span class="skill-tag">Docker Compose</span>
-              <span class="skill-tag">SSH/SCP</span>
+            <div class="album-grid">
+                <div>
+                    <img src="assets/album.png" alt="Symphony of Destruction Album Cover" class="album-cover">
+                </div>
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Tracklist</h3>
+                    <ul class="tracklist">
+                        <li><span>01.</span> <span class="track-name">Prelude to Chaos</span> <span>1:45</span></li>
+                        <li><span>02.</span> <span class="track-name">Symphony of Destruction</span> <span>5:12</span></li>
+                        <li><span>03.</span> <span class="track-name">Blood and Gears</span> <span>4:38</span></li>
+                        <li><span>04.</span> <span class="track-name">The Crimson Rune</span> <span>6:05</span></li>
+                        <li><span>05.</span> <span class="track-name">Echoes in the Abyss</span> <span>7:20</span></li>
+                        <li><span>06.</span> <span class="track-name">Final Stand</span> <span>4:55</span></li>
+                    </ul>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                        <a href="#" class="btn" style="background: var(--accent); border-color: var(--accent); padding: 0.8rem 1.5rem;"><i class="ti ti-brand-spotify"></i> Stream</a>
+                        <a href="#" class="btn" style="padding: 0.8rem 1.5rem;"><i class="ti ti-shopping-cart"></i> Buy Vinyl</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-title"><i class="ti ti-database" aria-hidden="true"></i> Database</div>
-            <div class="skill-tags">
-              <span class="skill-tag">MariaDB</span>
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">PostgreSQL</span>
-            </div>
-          </div>
         </div>
-      </div>
+    </section>
 
-      <!-- PROJECTS -->
-      <div class="section">
-        <h2 class="section-title">Misi & Pertempuran</h2>
+    <!-- Dynamic Portal Link -->
+    <section class="portal-banner">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Enter The Inner Circle</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Get the latest transmissions, exclusive news, and secure your tickets for our upcoming world tour.</p>
+        <a href="/app/" class="btn" style="background: var(--accent); border-color: var(--accent); font-size: 1.1rem; padding: 1.2rem 3rem;">
+            <i class="ti ti-news"></i> Open News Portal
+        </a>
+    </section>
 
-        <div class="project">
-          <div class="project-title"><i class="ti ti-git-merge" style="color:var(--gold-dark); margin-right:6px;"
-              aria-hidden="true"></i>Sistem Deployment CI/CD — Cloud Computing II</div>
-          <div class="project-tech">GitHub Actions · Docker · AWS EC2 · Nginx · MariaDB</div>
-          <div class="project-desc">Merancang pipeline CI/CD otomatis dengan GitHub Actions untuk mendeploy
-            multi-container application ke AWS EC2. Mengimplementasikan Zero-Touch Deployment sehingga perubahan kode
-            langsung terpublikasi ke server production tanpa intervensi manual.</div>
-        </div>
-
-        <div class="project">
-          <div class="project-title"><i class="ti ti-server" style="color:var(--gold-dark); margin-right:6px;"
-              aria-hidden="true"></i>Web Administrasi Server</div>
-          <div class="project-tech">PHP · MariaDB · Docker Compose · Nginx</div>
-          <div class="project-desc">Membangun aplikasi web dinamis berbasis PHP dengan manajemen database MariaDB,
-            dikemas dalam container Docker dan diorkestrasi menggunakan Docker Compose dengan reverse proxy Nginx.</div>
-        </div>
-
-        <div class="project">
-          <div class="project-title"><i class="ti ti-id-badge" style="color:var(--gold-dark); margin-right:6px;"
-              aria-hidden="true"></i>Portfolio & CV Digital</div>
-          <div class="project-tech">HTML · CSS · Docker · GitHub Actions</div>
-          <div class="project-desc">Situs CV statis bertema ksatria yang di-containerize menggunakan Nginx Docker dan
-            di-deploy secara otomatis melalui pipeline CI/CD ke AWS EC2.</div>
-        </div>
-      </div>
-
-      <!-- EXPERIENCE -->
-      <div class="section">
-        <h2 class="section-title">Pengalaman Tempur</h2>
-
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Asisten Laboratorium Komputer</span>
-            <span class="entry-date">2023 — Sekarang</span>
-          </div>
-          <div class="entry-sub">UIN Siber Syekh Nurjati Cirebon</div>
-          <div class="entry-desc">
-            <ul>
-              <li>Membantu mahasiswa dalam praktikum jaringan komputer dan pemrograman web</li>
-              <li>Mengelola dan memelihara infrastruktur laboratorium komputer</li>
-              <li>Menyusun modul praktikum berbasis project-based learning</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-text">
-        <i class="ti ti-sword" style="font-size:1rem; vertical-align:-2px;" aria-hidden="true"></i>
-        &nbsp; Semper Fidelis in Codice &nbsp;
-        <i class="ti ti-sword" style="font-size:1rem; vertical-align:-2px;" aria-hidden="true"></i>
-      </div>
-
-    </div><!-- end scroll-body -->
-
-    <div class="scroll-bottom">
-      <span class="ornament">⚜</span>
-      <span
-        style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.15em; color:#1a1208; opacity:0.6;">JIBRIL
-        JUDEX FACTI ALIYUDIN — 2025</span>
-      <span class="ornament">⚜</span>
-    </div>
-
-  </div>
+    <footer>
+        <p>&copy; 2026 Echoes of Eternity. All Rights Reserved. Heavy Metal Worldwide.</p>
+    </footer>
 
 </body>
-
 </html>

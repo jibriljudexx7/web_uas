@@ -33,8 +33,8 @@ INSERT INTO users (username, password, full_name) VALUES
 
 -- Seed news
 INSERT INTO news (title, content, image_url) VALUES 
-('Album Baru "Symphony of Destruction" Akan Segera Rilis!', 'Kami sedang menyelesaikan tahap akhir mixing untuk album studio ke-5 kami. Nantikan ledakan distorsi dan harmoni yang belum pernah kalian dengar sebelumnya!', 'https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&q=80&w=800'),
-('Pengumuman Tur Dunia 2026', 'Persiapkan diri kalian! Kami akan mengguncang 5 benua dalam tur dunia terbesar kami tahun ini. Tiket pre-sale akan mulai dijual minggu depan.', 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800');
+('Album Baru "Symphony of Destruction" Akan Segera Rilis!', 'Kami sedang menyelesaikan tahap akhir mixing untuk album studio ke-5 kami. Nantikan ledakan distorsi dan harmoni yang belum pernah kalian dengar sebelumnya!', '/assets/album.png'),
+('Pengumuman Tur Dunia 2026', 'Persiapkan diri kalian! Kami akan mengguncang 5 benua dalam tur dunia terbesar kami tahun ini. Tiket pre-sale akan mulai dijual minggu depan. Lihat foto eksklusif latihan kami di bawah ini!', '/assets/band.png');
 
 -- Seed tours
 INSERT INTO tours (city, venue, tour_date, status) VALUES 

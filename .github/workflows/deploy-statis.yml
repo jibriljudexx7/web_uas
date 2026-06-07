@@ -49,6 +49,6 @@ jobs:
           script: |
             cd /home/${{ secrets.AWS_USERNAME }}/uas-project/web-dinamis
             export DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME
-            docker compose pull web-statis
-            docker compose up -d --force-recreate web-statis
+            docker compose pull
+            docker compose up -d --force-recreate
             echo "✅ Web Statis deployed successfully via Docker Compose"
