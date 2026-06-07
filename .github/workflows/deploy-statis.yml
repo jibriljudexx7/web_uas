@@ -47,14 +47,8 @@ jobs:
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           envs: DOCKERHUB_USERNAME
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
-            docker stop web-statis || true
-            docker rm web-statis || true
-            docker network create uas-network || true
-            docker run -d \
-              --name web-statis \
-              -p 80:80 \
-              --network uas-network \
-              --restart unless-stopped \
-              ${{ secrets.DOCKERHUB_USERNAME }}/uas-statis:latest
-            echo "✅ Web Statis deployed successfully"
+            cd /home/${{ secrets.AWS_USERNAME }}/uas-project/web-dinamis
+            export DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME
+            docker compose pull web-statis
+            docker compose up -d --force-recreate web-statis
+            echo "✅ Web Statis deployed successfully via Docker Compose"

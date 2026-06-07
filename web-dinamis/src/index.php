@@ -1,7 +1,8 @@
 <?php
 // MVC Front Controller with Routing
 require_once __DIR__ . '/controllers/AuthController.php';
-require_once __DIR__ . '/controllers/HomeController.php';
+require_once __DIR__ . '/controllers/PublicController.php';
+require_once __DIR__ . '/controllers/DashboardController.php';
 
 $page = $_GET['page'] ?? 'home';
 
@@ -14,13 +15,12 @@ switch ($page) {
         $controller = new AuthController();
         $controller->logout();
         break;
+    case 'dashboard':
+        $controller = new DashboardController();
+        $controller->index();
+        break;
     default:
-        // Protect home page - require login
-        if (!AuthController::check()) {
-            header('Location: index.php?page=login');
-            exit;
-        }
-        $controller = new HomeController();
+        $controller = new PublicController();
         $controller->index();
         break;
 }

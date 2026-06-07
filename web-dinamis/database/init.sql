@@ -9,10 +9,20 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS guestbook (
+CREATE TABLE IF NOT EXISTS news (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    message TEXT NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    content TEXT NOT NULL,
+    image_url VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS tours (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    city VARCHAR(100) NOT NULL,
+    venue VARCHAR(150) NOT NULL,
+    tour_date DATE NOT NULL,
+    status ENUM('Upcoming', 'Sold Out', 'Completed') DEFAULT 'Upcoming',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -21,7 +31,14 @@ INSERT INTO users (username, password, full_name) VALUES
 ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrator'),
 ('jibril', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Jibril Judex Facti Aliyudin');
 
--- Seed guestbook
-INSERT INTO guestbook (name, message) VALUES 
-('Mohamad Firdaus, M.Kom.', 'Selamat datang di Aplikasi Web Dinamis! Aplikasi ini terhubung dengan MariaDB.'),
-('Jibril Judex Facti Aliyudin', 'Ini adalah tes pesan pertama dari sistem.');
+-- Seed news
+INSERT INTO news (title, content, image_url) VALUES 
+('Album Baru "Symphony of Destruction" Akan Segera Rilis!', 'Kami sedang menyelesaikan tahap akhir mixing untuk album studio ke-5 kami. Nantikan ledakan distorsi dan harmoni yang belum pernah kalian dengar sebelumnya!', 'https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&q=80&w=800'),
+('Pengumuman Tur Dunia 2026', 'Persiapkan diri kalian! Kami akan mengguncang 5 benua dalam tur dunia terbesar kami tahun ini. Tiket pre-sale akan mulai dijual minggu depan.', 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800');
+
+-- Seed tours
+INSERT INTO tours (city, venue, tour_date, status) VALUES 
+('Jakarta, ID', 'Gelora Bung Karno', '2026-08-15', 'Upcoming'),
+('Tokyo, JP', 'Tokyo Dome', '2026-09-02', 'Sold Out'),
+('Berlin, DE', 'Olympiastadion', '2026-09-20', 'Upcoming'),
+('London, UK', 'Wembley Stadium', '2026-10-05', 'Upcoming');
