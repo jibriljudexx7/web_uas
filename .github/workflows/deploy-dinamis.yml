@@ -6,8 +6,6 @@ on:
       - main
     paths:
       - 'web-dinamis/**'
-      - 'docker-compose.yml'
-      - 'web-dinamis/database/**'
       - '.github/workflows/deploy-dinamis.yml'
 
 jobs:
@@ -47,7 +45,7 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: "docker-compose.yml,web-dinamis/database/init.sql"
+          source: "web-dinamis/docker-compose.yml,web-dinamis/database/init.sql"
           target: "/home/${{ secrets.AWS_USERNAME }}/uas-project"
 
       - name: Deploy via SSH
@@ -60,7 +58,7 @@ jobs:
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           envs: DOCKERHUB_USERNAME
           script: |
-            cd /home/${{ secrets.AWS_USERNAME }}/uas-project
+            cd /home/${{ secrets.AWS_USERNAME }}/uas-project/web-dinamis
             export DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME
             docker compose pull web-dinamis db
             docker compose up -d web-dinamis db
