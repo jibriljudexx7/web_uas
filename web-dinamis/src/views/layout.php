@@ -373,7 +373,7 @@
     <nav class="navbar">
         <a href="index.php" class="navbar-brand">
             <i class="ti ti-flame" style="color: var(--accent-primary);"></i>
-            Echoes of Eternity
+            Echoes of Eternity Muhammad Jibril 2388010051
         </a>
         <div class="navbar-nav">
             <?php if (isset($_SESSION['user_id'])): ?>
